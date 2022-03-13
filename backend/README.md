@@ -4,7 +4,17 @@ Following this guide https://blog.heroku.com/real_time_rails_implementing_websoc
 
 another guide https://www.pluralsight.com/guides/creating-a-chat-using-rails-action-cable
 
-## Commands ran for setup
+
+## Commands to run for setting up
+```
+rbenv local 3.0.2
+bundle install
+bundle exec db:create
+bundle exec db:migrate
+```
+
+
+## Commands ran while creating stuff
 
 ```
 rbenv local 3.0.2
