@@ -1,0 +1,2 @@
+class Guesser < ApplicationRecord
+end

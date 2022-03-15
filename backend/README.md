@@ -1,8 +1,10 @@
 # Sources
 
-Following this guide https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable
+Following this guide currently https://medium.com/@valentinowong/using-rails-action-cable-with-a-vanilla-javascript-front-end-1e00ed90067e#060d
 
-another guide https://www.pluralsight.com/guides/creating-a-chat-using-rails-action-cable
+~~Following this guide https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable~~
+
+~~another guide https://www.pluralsight.com/guides/creating-a-chat-using-rails-action-cable~~
 
 
 ## Commands to run for setting up
