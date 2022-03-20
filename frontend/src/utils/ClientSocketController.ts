@@ -5,8 +5,6 @@ export default class ClientSocketController implements IClientSocketController {
   private readonly _socket: Socket;
 
   constructor() {
-    console.log("socket initialized");
-    // TODO: get src url from env
     this._socket = io('ws://localhost:3000/WoScable');
 
     this._socket.on('connect_error', (err) => {
