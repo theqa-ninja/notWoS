@@ -1,8 +1,10 @@
 # Sources
 
-Following this guide https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable
+Following this guide currently https://medium.com/@valentinowong/using-rails-action-cable-with-a-vanilla-javascript-front-end-1e00ed90067e#060d
 
-another guide https://www.pluralsight.com/guides/creating-a-chat-using-rails-action-cable
+~~Following this guide https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable~~
+
+~~another guide https://www.pluralsight.com/guides/creating-a-chat-using-rails-action-cable~~
 
 
 ## Commands to run for setting up
@@ -11,8 +13,20 @@ rbenv local 3.0.2
 bundle install
 bundle exec db:create
 bundle exec db:migrate
+bundle exec db:seed
+bundle exec rails s
 ```
 
+## Testing things
+Connect postman to `ws://localhost:3000/WoScable`
+Submit something like this in the body
+```
+{
+    "command": "subscribe",
+    "identifier": "{\"channel\":\"GameroomChannel\", \"id\":\"66ab6aed-758a-476d-82cb-781a9d200c57\"}"
+}
+```
+Make a API POST call to `localhost:3000/guesses?gameroom_id=66ab6aed-758a-476d-82cb-781a9d200c57&level_id=6c59dbad-283c-446e-bf9f-65461608ec17&guess=hello&guesser_id=44d9747f-04c5-4021-9cd2-5ec51d870902` to submit a guess
 
 ## Commands ran while creating stuff
 
@@ -35,6 +49,10 @@ rubocop -A .
 
 ## TODO:
 - [x] make models
-- [*] make websockets
+- [x] seed data
+- [x] make websockets
+- [ ] make APIs for calls
+- [ ] clean up websockets?
+- [ ] clean up after levels / games finish
 - [ ] make word list database
 - [ ] make api to import new word lists

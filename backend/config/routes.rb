@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :gamerooms, only: %i[index create update show]
+  resources :levels, only: %i[create show]
+  resources :guessers, only: %i[create show]
+  resources :guesses, only: [:create]
+
+  mount ActionCable.server => '/WoScable'
 end

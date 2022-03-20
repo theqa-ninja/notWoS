@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -23,12 +21,13 @@ ActiveRecord::Schema[7.0].define(version: 20_220_313_062_122) do
     t.string 'room_code', null: false
     t.integer 'current_level', default: 0
     t.uuid 'theme_id'
+    t.boolean 'is_active', default: true
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end
 
   create_table 'guessers', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
-    t.string 'display_name'
+    t.string 'display_name', default: 'Guest'
     t.string 'email'
     t.string 'password'
     t.datetime 'created_at', null: false
@@ -40,8 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 20_220_313_062_122) do
     t.uuid 'gameroom_id', null: false
     t.uuid 'level_id', null: false
     t.string 'guess'
-    t.boolean 'valid'
-    t.boolean 'was_locked'
+    t.boolean 'is_valid'
+    t.boolean 'was_locked', default: true
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end
@@ -54,15 +53,19 @@ ActiveRecord::Schema[7.0].define(version: 20_220_313_062_122) do
   end
 
   create_table 'levels', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
-    t.uuid 'gameroom_id'
+    t.uuid 'gameroom_id', null: false
     t.integer 'level', null: false
     t.string 'starting_word', null: false
-    t.string 'letters', array: true
-    t.string 'valid_words', array: true
+    t.string 'valid_letters', default: [], array: true
+    t.string 'valid_words', default: [], array: true
+    t.integer 'fake_count', default: 0
+    t.integer 'hidden_count', default: 0
     t.string 'fake_letters', default: [], array: true
     t.string 'hidden_letters', default: [], array: true
-    t.integer 'min_length', null: false
+    t.string 'displayed_letters', array: true
+    t.integer 'min_length', default: 4
     t.integer 'max_length', null: false
+    t.boolean 'is_active', default: false
     t.uuid 'theme_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
