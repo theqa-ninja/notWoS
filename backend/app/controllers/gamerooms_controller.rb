@@ -1,13 +1,12 @@
+# frozen_string_literal: true
 class GameroomsController < ApplicationController
-
   def index
     game_rooms = Gameroom.all
     render json: game_rooms
   end
 
   def create
-    # game_room = Gameroom.new(game_room_params)
-    game_room = Gameroom.new(name: 'Hello', room_code: 'ABCDEF')
+    game_room = Gameroom.new(game_room_params)
     if game_room.save
       render json: game_room
     else
@@ -46,7 +45,7 @@ class GameroomsController < ApplicationController
   #   end
   # end
 
-    # def message_params
-    #   params.require(:message).permit(:content, :chatroom_id)
-    # end
+  # def message_params
+  #   params.require(:message).permit(:content, :chatroom_id)
+  # end
 end

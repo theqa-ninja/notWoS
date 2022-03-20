@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class LevelsController < ApplicationController
   def create
     # game_room = Gameroom.new(game_room_params)

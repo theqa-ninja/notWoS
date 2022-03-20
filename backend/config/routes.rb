@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :guessers, only: %i[create show]
   resources :guesses, only: [:create]
 
-  mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/WoScable'
 end
