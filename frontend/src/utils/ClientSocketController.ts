@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
 import type { Socket } from 'socket.io-client';
+import { ON_MESSAGE, EMIT_MESSAGE } from './MessageTypes';
 
 export default class ClientSocketController implements IClientSocketController {
   private readonly _socket: Socket;
@@ -37,11 +38,10 @@ export default class ClientSocketController implements IClientSocketController {
    * @param cb - callback function
    */
   public onUpdateGameState(cb: () => void) {
-    this._socket.on('updateGameState', () => {
+    this._socket.on(ON_MESSAGE.updateGameState, () => {
       cb();
     });
   }
-
 
   /**
    * Listen for 'create game room' event
@@ -49,18 +49,30 @@ export default class ClientSocketController implements IClientSocketController {
    * @param cb - callback function
    */
   public onCreateGameRoom(cb: () => void) {
-    this._socket.on('createGameRoom', () => {
+    this._socket.on(ON_MESSAGE.createGameRoom, () => {
       cb();
     });
   }
-  
+
   /**
-   * Handle new guess 
+   * Handle new guess
    *
    * @param cb - callback function
    */
   public onNewGuess(cb: () => void) {
-    this._socket.on('newGuess', () => {
+    this._socket.on(ON_MESSAGE.newGuess, () => {
+      cb();
+    });
+  }
+
+  public emitJoinRoom(cb: () => void) {
+    this._socket.on(EMIT_MESSAGE.joinRoom, () => {
+      cb();
+    });
+  }
+
+  public emitCreateGuess(cb: () => void) {
+    this._socket.on(EMIT_MESSAGE.createGuess, () => {
       cb();
     });
   }

@@ -4,7 +4,9 @@ import { createContext, useContext, ReactNode } from 'react';
 const SocketContext = createContext<IClientSocketController>({
   onNewGuess: () => null,
   onUpdateGameState: () => null,
-  onCreateGameRoom: () => null
+  onCreateGameRoom: () => null,
+  emitJoinRoom: () => null,
+  emitCreateGuess: () => null
 });
 
 // NOTE: public hook for use

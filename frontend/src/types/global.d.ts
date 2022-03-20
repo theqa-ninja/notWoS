@@ -7,9 +7,10 @@ declare global {
     onUpdateGameState: CallbackFunction;
     onNewGuess: CallbackFunction;
     onCreateGameRoom: CallbackFunction;
+    emitJoinRoom: CallbackFunction;
+    emitCreateGuess: CallbackFunction;
   }
 
   type CallbackType = () => void;
   type CallbackFunction = (cb: CallbackType) => void;
 }
-
