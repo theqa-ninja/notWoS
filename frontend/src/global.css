@@ -62,5 +62,4 @@
     --gray1:         hsl(var(--gray1_hsl));
     --gray2:         hsl(var(--gray2_hsl));
     --white:         hsl(var(--white_hsl));
-
 }

@@ -1,13 +1,12 @@
-.sidebar {
-  @apply
-    overflow-hidden
-    h-screen
-    !bg-red-100
-    lg:w-1/6
-    md:w-1/3
-    w-[80%];
-}
-
-.unused {
-  @apply text-4xl text-green-300;
+@tailwind components;
+@layer components {
+  .sidebar {
+      @apply
+      overflow-hidden
+      h-screen
+      !bg-red-100
+      lg:w-1/6
+      md:w-1/3
+      w-[80%];
+  }
 }
