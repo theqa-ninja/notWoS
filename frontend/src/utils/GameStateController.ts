@@ -8,4 +8,16 @@ export default class GameStateController implements IGameStateController {
   constructor() {
     this._state = GameState.IDLE;
   }
+
+  get state() {
+    return this._state;
+  }
+
+  setState(s: GameState) {
+    this._state = s;
+  }
+
+  createGame() {
+    this._state = GameState.CREATING_GAME;
+  }
 }
