@@ -44,20 +44,21 @@ declare interface IClientSocketController {
 
 declare interface IGame {
   addLevel: (l: Level) => void;
-  advanceGame: () => void;
+  advanceScreen: () => void;
   currentLevel: number | null;
   gameRoom: GameRoom | null;
-  gameState: GameState;
+  screenState: ScreenState;
   levels: Array<Level>;
   resetGame: () => void;
   setCurrentLevel: Dispatch<SetStateAction<number | null>>;
   setGameRoom: Dispatch<SetStateAction<GameRoom | null>>;
-  setGameState: Dispatch<SetStateAction<GameState>>;
+  setScreenState: Dispatch<SetStateAction<ScreenState>>;
 }
 
 /**
  *  Different Game states to handle game screens
  *  @enum
+ *  @deprecated
  */
 declare enum GameState {
   IDLE = 100,
@@ -77,5 +78,6 @@ declare enum ScreenState {
   COUNT_DOWN,
   ONGOING_GAME,
   SCOREBOARD,
-  RANKING
+  RANKING,
+  GAME_OVER
 }

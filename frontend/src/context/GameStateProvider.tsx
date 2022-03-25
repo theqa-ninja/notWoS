@@ -2,15 +2,15 @@ import { useState, createContext, useContext, ReactNode } from 'react';
 
 const GameContext = createContext<IGame>({
   addLevel: () => null,
-  advanceGame: () => null,
+  advanceScreen: () => null,
   currentLevel: null,
   gameRoom: null,
-  gameState: GameState.IDLE,
+  screenState: ScreenState.IDLE,
   levels: [],
   resetGame: () => null,
   setCurrentLevel: () => null,
   setGameRoom: () => null,
-  setGameState: () => null
+  setScreenState: () => null
 });
 
 const useGame = () => useContext(GameContext);
@@ -22,7 +22,7 @@ function useProvideGame(): IGame {
 
   // NOTE: if game state management becomes too complicated, migrate to useReducer instead
   // Use as reference: https://stackoverflow.com/a/60515724
-  const [gameState, setGameState] = useState<GameState>(GameState.IDLE);
+  const [screenState, setScreenState] = useState<ScreenState>(ScreenState.IDLE);
 
   /**
    * Adds a level to a list of completed levels
@@ -36,43 +36,27 @@ function useProvideGame(): IGame {
     setGameRoom(null);
     setLevels([]);
     setCurrentLevel(null);
-    setGameState(GameState.IDLE);
-  };
-
-  const resolveLevel = () => {
-    const level = levels[currentLevel];
-    if (level.completed && !level.gameOver) {
-      setGameState(GameState.WAITING_FOR_HOST);
-    } else if (level.completed && level.gameOver){
-      setGameState(GameState.GAME_OVER);
-    }
+    setScreenState(ScreenState.IDLE);
   };
 
   /**
-   * Advance the game state to next stage/state
-   * this will indicate which screen should be shown
-  *  TODO:
+   * Advance the game state to next stage/state this will indicate which screen
+   * should be shown next
    */
-  const advanceGame = () => {
-    switch (gameState) {
-      case GameState.IDLE:
-        return setGameState(GameState.CREATING_GAME);
-      case GameState.CREATING_GAME:
-        return setGameState(GameState.STARTING_GAME);
-      case GameState.STARTING_GAME:
-        return setGameState(GameState.NEW_LEVEL);
-      case GameState.NEW_LEVEL:
-        return setGameState(GameState.LOADING_LEVEL);
-      case GameState.LOADING_LEVEL:
-        return setGameState(GameState.ENDING_LEVEL);
-      case GameState.SHOWING_SCOREBOARD:
-        return setGameState(GameState.SHOWING_SCOREBOARD);
-      case GameState.GAME_OVER:
-        return setGameState(GameState.ENDING_GAME);
-      case GameState.ENDING_GAME:
-        return resetGame();
+  const advanceScreen = () => {
+    switch (screenState) {
+      case ScreenState.IDLE:
+        return setScreenState(ScreenState.COUNT_DOWN);
+      case ScreenState.COUNT_DOWN:
+        return setScreenState(ScreenState.ONGOING_GAME);
+      case ScreenState.ONGOING_GAME:
+        return setScreenState(ScreenState.SCOREBOARD);
+      case ScreenState.SCOREBOARD:
+        return setScreenState(ScreenState.RANKING);
+      case ScreenState.RANKING:
+        return setScreenState(ScreenState.COUNT_DOWN);
       default:
-        setGameState(GameState.IDLE);
+        setScreenState(ScreenState.IDLE);
     }
   };
 
@@ -80,21 +64,22 @@ function useProvideGame(): IGame {
     currentLevel,
     gameRoom,
     levels,
-    gameState,
+    screenState,
     setCurrentLevel,
     setGameRoom,
     addLevel,
-    setGameState,
+    setScreenState,
     resetGame,
-    advanceGame
+    advanceScreen
   };
 }
 
+/**
+ * Provide Game context to child components
+ */
 const GameProvider = ({ children }: { children: ReactNode }) => {
   const game = useProvideGame();
-  return (
-    <GameContext.Provider value={game}>{children}</GameContext.Provider>
-  );
+  return <GameContext.Provider value={game}>{children}</GameContext.Provider>;
 };
 
 export { GameProvider, GameContext, useGame };
