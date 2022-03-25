@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutMain from 'components/layouts/LayoutMain';
+import LayoutMain from 'components/Layouts/LayoutMain';
 const Home: React.FC = () => {
   return (
     <LayoutMain>
