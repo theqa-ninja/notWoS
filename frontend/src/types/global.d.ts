@@ -27,6 +27,8 @@ declare type Level = {
   min_length: number;
   max_length: number;
   dictionary: UUID;
+  gameOver: boolean;
+  completed: boolean;
 };
 
 /**
@@ -53,12 +55,16 @@ declare interface IGame {
   setGameState: Dispatch<SetStateAction<GameState>>;
 }
 
+/**
+*  Different Game states to handle game screens
+*  @enum
+*/
 declare enum GameState {
   IDLE = 100,
   CREATING_GAME,
   WAITING_FOR_HOST,
   STARTING_GAME,
-  NEW_LEVEL,
+  NEW_LEVEL, // next-level?
   LOADING_LEVEL,
   ENDING_LEVEL,
   SHOWING_SCOREBOARD,

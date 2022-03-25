@@ -20,5 +20,9 @@
   "exclude": ["node_modules"],
   "paths": {
     "*": ["src/types/*.d.ts"]
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "docs"
   }
 }

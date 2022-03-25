@@ -1,4 +1,3 @@
-import { SocketProvider } from 'context/SocketProvider';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Loading from 'components/Loading';

@@ -2,6 +2,12 @@ import io from 'socket.io-client';
 import type { Socket } from 'socket.io-client';
 import { ON_MESSAGE, EMIT_MESSAGE } from './MessageTypes';
 
+/**
+ * INFO:
+ * What if you make a subscription map, where the subsription data type
+ * is a TYPE of subsciption (MESSAGE_TYPE) and then the subscription function
+ */
+
 export default class ClientSocketController implements IClientSocketController {
   private readonly _socket: Socket;
 
