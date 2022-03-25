@@ -1,25 +1,65 @@
 import { useState, createContext, useContext, ReactNode } from 'react';
-import GameStateController from 'utils/GameStateController';
+const GameContext = createContext<IGame>({
+  addLevel: () => null,
+  advanceGame: () => null,
+  currentLevel: null,
+  gameRoom: null,
+  gameState: GameState.IDLE,
+  levels: [],
+  resetGame: () => null,
+  setCurrentLevel: () => null,
+  setGameRoom: () => null,
+  setGameState: () => null,
+});
 
-const GameStateContext = createContext<IGameStateController>(
-  new GameStateController()
-);
+const useGame = () => useContext(GameContext);
 
-const useGameState = () => useContext(GameStateContext);
+function useProvideGame(): IGame {
+  const [gameRoom, setGameRoom] = useState<GameRoom | null>(null);
+  const [levels, setLevels] = useState<Level[]>([]);
+  const [currentLevel, setCurrentLevel] = useState<number | null>(null);
+  const [gameState, setGameState] = useState<GameState>(GameState.IDLE);
 
-// TODO: state needs to be used with useState, else it would not be reactive.
-function useProvideGameState(): IGameStateController {
-  const gameState = new GameStateController();
-  return gameState;
+  const addLevel = (l: Level) => setLevels((lvls) => [...lvls, l]);
+
+  const resetGame = () => {
+    setGameRoom(null);
+    setLevels([]) ;
+    setCurrentLevel(null);
+    setGameState(GameState.IDLE);
+  }
+
+  /**
+  * Advance the game state to next stage/state
+  */
+  const advanceGame= () => {
+    switch(gameState) {
+      default:
+        setGameState(GameState.IDLE);
+    }
+  }
+
+  return {
+    currentLevel,
+    gameRoom,
+    levels,
+    gameState,
+    setCurrentLevel,
+    setGameRoom,
+    addLevel,
+    setGameState,
+    resetGame,
+    advanceGame
+  };
 }
 
-const GameStateProvider = ({ children }: { children: ReactNode }) => {
-  const state = useProvideGameState();
+const GameProvider = ({children} : {children: ReactNode}) => {
+  const game = useProvideGame();
   return (
-    <GameStateContext.Provider value={state}>
+    <GameContext.Provider value={game}>
       {children}
-    </GameStateContext.Provider>
-  );
-};
+    </GameContext.Provider>
+  )
+}
 
-export { GameStateProvider, GameStateContext, useGameState };
+export { GameProvider, GameContext, useGame };

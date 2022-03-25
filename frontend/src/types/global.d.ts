@@ -40,12 +40,17 @@ declare interface IClientSocketController {
   emitCreateGuess: CallbackFunction;
 }
 
-declare interface IGameStateController {
-  gameRoom: GameRoom | null;
-  levels: Array<Level>;
+declare interface IGame {
+  addLevel: (l: Level) => void;
+  advanceGame: () => void;
   currentLevel: number | null;
-  setState: (s: GameState) => void;
-  createGame: () => void;
+  gameRoom: GameRoom | null;
+  gameState: GameState;
+  levels: Array<Level>;
+  resetGame: () => void;
+  setCurrentLevel: Dispatch<SetStateAction<number | null>>;
+  setGameRoom: Dispatch<SetStateAction<GameRoom | null>>;
+  setGameState: Dispatch<SetStateAction<GameState>>;
 }
 
 declare enum GameState {
@@ -53,6 +58,7 @@ declare enum GameState {
   CREATING_GAME,
   WAITING_FOR_HOST,
   STARTING_GAME,
+  NEW_LEVEL,
   LOADING_LEVEL,
   ENDING_LEVEL,
   SHOWING_SCOREBOARD,
