@@ -56,9 +56,9 @@ declare interface IGame {
 }
 
 /**
-*  Different Game states to handle game screens
-*  @enum
-*/
+ *  Different Game states to handle game screens
+ *  @enum
+ */
 declare enum GameState {
   IDLE = 100,
   CREATING_GAME,
@@ -70,4 +70,12 @@ declare enum GameState {
   SHOWING_SCOREBOARD,
   GAME_OVER,
   ENDING_GAME
+}
+
+declare enum ScreenState {
+  IDLE = 100,
+  COUNT_DOWN,
+  ONGOING_GAME,
+  SCOREBOARD,
+  RANKING
 }
