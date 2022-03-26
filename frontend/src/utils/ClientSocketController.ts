@@ -2,6 +2,17 @@ import io from 'socket.io-client';
 import type { Socket } from 'socket.io-client';
 import { ON_MESSAGE, EMIT_MESSAGE } from './MessageTypes';
 
+enum Message {
+  CREATE_GAME_ROOM = 'createGameRoom',
+  UPDATE_GAME_STATE = 'updateGameState',
+  NEW_GUESS = 'newGuess',
+  JOIN_ROOM = 'joinRoom',
+  CREATE_GUESS = 'createGuess'
+}
+
+declare function f<T>(x: T): unknown;
+declare type Fn = typeof f;
+
 /**
  * INFO:
  * What if you make a subscription map, where the subsription data type
@@ -10,6 +21,7 @@ import { ON_MESSAGE, EMIT_MESSAGE } from './MessageTypes';
 
 export default class ClientSocketController implements IClientSocketController {
   private readonly _socket: Socket;
+  private readonly _subscription: Map<Message, Fn[]> = new Map();
 
   constructor() {
     this._socket = io('ws://localhost:3000/WoScable');
@@ -36,6 +48,38 @@ export default class ClientSocketController implements IClientSocketController {
 
   private onDisconnect(msg: string): void {
     console.log(`Socket disconnected: ${msg}`);
+  }
+
+  /**
+   * Subscribe to incoming socket messages based on type
+   */
+  public subscribe(type: Message, cb: Fn): void {
+    const lookup = this._subscription.has(type);
+    if (!lookup) {
+      this._subscription.set(type, []);
+    }
+
+    this._subscription.get(type)!.push(cb);
+  }
+
+  public unsubscribe(type: Message, cb: Fn): void {
+    const lookup = this._subscription.has(type);
+    if (!lookup) {
+      return;
+    }
+
+    // TODO: test if this works probably
+    const map = this._subscription.get(type)!;
+    for (let i = 0; i < map.length; i++) {
+      if (map[i] === cb) {
+        map.splice(i, 1);
+        break;
+      }
+    }
+
+    if (map.length === 0) {
+      this._subscription.delete(type);
+    }
   }
 
   /**
