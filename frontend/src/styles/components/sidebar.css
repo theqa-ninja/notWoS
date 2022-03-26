@@ -1,27 +1,29 @@
 .sidebar {
     @apply
       bg-black-0
-        w-1/6
         p-4
         h-screen
         border-l-2
         border-solid
         border-lavender
+        max-h-screen
         flex
         flex-col
-        space-y-2
+        space-y-4
     ;
+    width: min(400px, 25%);
 }
 
 .sidebar > .sidebar-heading {
     @apply
-        border-2
-        border-solid
-        border-lavender
-        p-2
-      bg-background
-        text-center
-        rounded-xl
-        h-min
-        w-full;
+      font-fredoka
+      border-2
+      border-solid
+      border-lavender
+      p-2
+    bg-background
+      text-center
+      rounded-xl
+      h-min
+      w-full;
 }
