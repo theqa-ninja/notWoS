@@ -86,3 +86,39 @@ declare type LevelState = {
   gameOver: boolean;
   completed: boolean;
 };
+
+// declare const Colors = {
+//   maroon: 'maroon',
+//   rosewater: 'rosewater',
+//   flamingo: 'flamingo',
+//   mauve: 'mauve',
+//   pink: 'pink',
+//   peach: 'peach',
+//   yellow: 'yellow',
+//   green: 'green',
+//   teal: 'teal',
+//   blue: 'blue',
+//   sky: 'sky',
+//   blue: 'blue',
+//   lavender: 'lavender'
+// };
+
+// declare type ChatMessageType = {
+//   username: string;
+//   key: string;
+//   color:
+//     | 'maroon'
+//     | 'rosewater'
+//     | 'flamingo'
+//     | 'mauve'
+//     | 'pink'
+//     | 'peach'
+//     | 'yellow'
+//     | 'green'
+//     | 'teal'
+//     | 'blue'
+//     | 'sky'
+//     | 'blue'
+//     | 'lavender';
+//   message: string;
+// };
