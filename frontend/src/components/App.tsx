@@ -4,7 +4,7 @@ import Loading from 'components/Loading';
 
 const Home = lazy(() => import('pages/Home'));
 const NotFound = lazy(() => import('pages/404'));
-const Game = lazy(() => import('pages/WOS'));
+const WOS = lazy(() => import('pages/WOS'));
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/wos" element={<Game />} />
+          <Route path="/wos" element={<WOS />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
