@@ -1,1 +1,12 @@
+@import "components/input.css";
 @import "components/sidebar.css";
+@import "components/chat.css";
+@import "components/game.css";
+
+.heading-03 {
+  @apply
+    text-3xl
+    uppercase
+    text-white
+    ;
+}

@@ -1,7 +1,27 @@
 .sidebar {
-    @apply bg-black-0 w-full p-4 h-full;
+    @apply
+      bg-black-0
+        w-1/6
+        p-4
+        h-screen
+        border-l-2
+        border-solid
+        border-lavender
+        flex
+        flex-col
+        space-y-2
+    ;
 }
 
 .sidebar > .sidebar-heading {
-    @apply bg-green h-6 w-full;
+    @apply
+        border-2
+        border-solid
+        border-lavender
+        p-2
+      bg-background
+        text-center
+        rounded-xl
+        h-min
+        w-full;
 }

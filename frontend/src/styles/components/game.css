@@ -1,0 +1,15 @@
+.game {
+  @apply
+    w-screen
+    h-screen
+    flex
+  ;
+}
+
+.game-wos {
+  @apply
+    w-full
+    h-full
+    bg-background
+    ;
+}

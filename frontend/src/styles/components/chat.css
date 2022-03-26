@@ -1,0 +1,78 @@
+.chat {
+  @apply
+    h-full
+    w-full
+    flex
+    flex-col
+    space-y-1
+    items-start
+    justify-end
+  ;
+}
+
+.chat-message {
+  @apply
+    flex
+    flex-row
+    space-x-1
+    text-white
+    justify-start
+  ;
+}
+
+.chat-username::after {
+  content: ':';
+  @apply text-white;
+}
+
+.chat-username--maroon {
+  @apply text-maroon;
+}
+
+.chat-username--rosewater {
+  @apply text-rosewater;
+}
+
+.chat-username--flamingo {
+  @apply text-flamingo;
+}
+
+.chat-username--mauve {
+  @apply text-mauve;
+}
+
+.chat-username--pink {
+  @apply text-pink;
+}
+
+.chat-username--peach {
+  @apply text-peach;
+}
+
+.chat-username--yellow {
+  @apply text-yellow;
+}
+
+.chat-username--green {
+  @apply text-green;
+}
+
+.chat-username--teal {
+  @apply text-teal;
+}
+
+.chat-username--blue {
+  @apply text-blue;
+}
+
+.chat-username--sky {
+  @apply text-sky;
+}
+
+.chat-username--lavender {
+  @apply text-lavender;
+}
+
+.chat-guess {
+  @apply text-white;
+}

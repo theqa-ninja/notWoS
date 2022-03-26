@@ -4,10 +4,11 @@
  */
 
 import type { FC, ReactNode } from 'react';
+import Navbar from 'components/Navbar/Navbar';
 
 const LayoutMain: FC = ({ children }: { children?: ReactNode }) => (
   <>
-    <h2>main layout</h2>
+    <Navbar />
     {children}
   </>
 );
