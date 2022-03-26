@@ -27,8 +27,6 @@ declare type Level = {
   min_length: number;
   max_length: number;
   dictionary: UUID;
-  gameOver: boolean;
-  completed: boolean;
 };
 
 /**
@@ -48,11 +46,13 @@ declare interface IGame {
   currentLevel: number | null;
   gameRoom: GameRoom | null;
   screenState: ScreenState;
+  lvlState: LevelState;
   levels: Array<Level>;
   resetGame: () => void;
   setCurrentLevel: Dispatch<SetStateAction<number | null>>;
   setGameRoom: Dispatch<SetStateAction<GameRoom | null>>;
   setScreenState: Dispatch<SetStateAction<ScreenState>>;
+  setLvlState: Dispatch<SetStateAction<LevelState>>;
 }
 
 /**
@@ -81,3 +81,8 @@ declare enum ScreenState {
   RANKING,
   GAME_OVER
 }
+
+declare type LevelState = {
+  gameOver: boolean;
+  completed: boolean;
+};

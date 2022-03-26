@@ -7,10 +7,12 @@ const GameContext = createContext<IGame>({
   gameRoom: null,
   screenState: ScreenState.IDLE,
   levels: [],
+  lvlState: { gameOver: false, completed: false },
   resetGame: () => null,
   setCurrentLevel: () => null,
   setGameRoom: () => null,
-  setScreenState: () => null
+  setScreenState: () => null,
+  setLvlState: () => null
 });
 
 const useGame = () => useContext(GameContext);
@@ -19,6 +21,10 @@ function useProvideGame(): IGame {
   const [gameRoom, setGameRoom] = useState<GameRoom | null>(null);
   const [levels, setLevels] = useState<Level[]>([]);
   const [currentLevel, setCurrentLevel] = useState<number | null>(null);
+  const [lvlState, setLvlState] = useState<LevelState>({
+    gameOver: false,
+    completed: false
+  });
 
   // NOTE: if game state management becomes too complicated, migrate to useReducer instead
   // Use as reference: https://stackoverflow.com/a/60515724
@@ -37,13 +43,21 @@ function useProvideGame(): IGame {
     setLevels([]);
     setCurrentLevel(null);
     setScreenState(ScreenState.IDLE);
+    setLvlState({
+      gameOver: false,
+      completed: false
+    });
   };
 
   /**
    * Advance the game state to next stage/state this will indicate which screen
    * should be shown next
    */
-  const advanceScreen = () => {
+  const advanceScreen = (gameOver = false) => {
+    if (gameOver) {
+      return setScreenState(ScreenState.GAME_OVER);
+    }
+
     switch (screenState) {
       case ScreenState.IDLE:
         return setScreenState(ScreenState.COUNT_DOWN);
@@ -56,7 +70,7 @@ function useProvideGame(): IGame {
       case ScreenState.RANKING:
         return setScreenState(ScreenState.COUNT_DOWN);
       default:
-        setScreenState(ScreenState.IDLE);
+        return setScreenState(ScreenState.IDLE);
     }
   };
 
@@ -64,13 +78,15 @@ function useProvideGame(): IGame {
     currentLevel,
     gameRoom,
     levels,
+    lvlState,
     screenState,
+    addLevel,
+    advanceScreen,
+    resetGame,
     setCurrentLevel,
     setGameRoom,
-    addLevel,
     setScreenState,
-    resetGame,
-    advanceScreen
+    setLvlState
   };
 }
 
