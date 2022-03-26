@@ -2,6 +2,7 @@
 
 body {
   @apply
+    font-roboto
     bg-background
     text-white;
 }
@@ -29,4 +30,6 @@ body {
   --theme-white: 217, 224, 238;
   --theme-lavender: 201, 203, 255;
   --theme-rosewater: 245, 224, 220;
+
+  --theme-accent: var(--theme-lavender);
 }
