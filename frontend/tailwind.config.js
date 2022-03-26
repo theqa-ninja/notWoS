@@ -2,6 +2,7 @@
   Explore configuration options docs https://tailwindcss.com/docs/configuration#configuration-options
   Or check the default configuration https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
 */
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 function withOpacityValue(variable) {
   return ({ opacityValue }) => {
@@ -51,6 +52,10 @@ module.exports = {
       white: '#D9E0EE'
     },
     extend: {
+      fontFamily: {
+        fredoka: ['Fredoka One', 'cursive'],
+        roboto: ['Roboto', ...defaultTheme.fontFamily.sans]
+      },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in'
       },
