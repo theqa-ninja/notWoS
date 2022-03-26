@@ -1,4 +1,4 @@
-/* 
+/*
   Explore configuration options docs https://tailwindcss.com/docs/configuration#configuration-options
   Or check the default configuration https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
 */
@@ -17,6 +17,10 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
+      background: '#1e1e2e',
+      accent: '#c9cbff',
+
+      /** THEME COLORS: CATPPUCCIN */
       rosewater: '#F5E0DC',
       flamingo: '#F2CDCD',
       mauve: '#DDB6F2',
