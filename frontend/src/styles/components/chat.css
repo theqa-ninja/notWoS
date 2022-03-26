@@ -8,6 +8,7 @@
     items-start
     justify-end
     transition-all
+    overflow-y-auto
   ;
 }
 
