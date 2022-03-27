@@ -3,7 +3,7 @@
       bg-black-0
         p-4
         h-screen
-        border-l-2
+        border-l-4
         border-solid
         border-lavender
         max-h-screen
@@ -17,7 +17,7 @@
 .sidebar > .sidebar-header {
     @apply
       font-fredoka
-      border-2
+      border-4
       border-solid
       border-lavender
       p-2
