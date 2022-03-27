@@ -109,7 +109,7 @@
   ;
 }
 
-.wos-block + .wos-block--hidden {
+.wos-block--hidden {
   @apply bg-yellow;
 }
 
