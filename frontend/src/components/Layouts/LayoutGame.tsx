@@ -1,6 +1,27 @@
 import Sidebar from 'components/Sidebar/Sidebar';
+import WosBlock from 'components/WosWord/WosBlock';
+import WosWord from 'components/WosWord/WosWord';
+import { generateRandomLetter, scrambleWord } from 'utils/Random';
 
 const LayoutGame = () => {
+  const word = 'fishhook';
+  let scrambled = scrambleWord(word);
+  const numOfFakes = 1;
+  const numOfHidden = 2;
+  const hiddens: number[] = [];
+  const fakes: string[] = [];
+
+  for (let i = 0; i < numOfFakes; i++) {
+    // TODO: random letter should not also be a letter that's already in original word?
+    const rand = generateRandomLetter();
+    fakes.push(rand);
+    scrambled += rand;
+  }
+
+  for (let i = 0; i < numOfHidden; i++) {
+    hiddens.push(Math.floor(Math.random() * scrambled.length));
+  }
+
   return (
     <>
       <main className="game">
@@ -15,19 +36,16 @@ const LayoutGame = () => {
               <span className="text-lg text-center text-background uppercase">
                 unscramble me
               </span>
-              <div className="wos-word">
-                <span className="wos-block">t</span>
-                <span className="wos-block">e</span>
-                <span className="wos-block wos-block--hidden">?</span>
-                <span className="wos-block">r</span>
-                <span className="wos-block wos-block--fake">e</span>
-                <span className="wos-block">p</span>
-                <span className="wos-block">u</span>
-                <span className="wos-block wos-block--hidden">?</span>
-                <span className="wos-block wos-block--fake">a</span>
-                <span className="wos-block">m</span>
-                <span className="wos-block">r</span>
-              </div>
+              <WosWord>
+                {scrambled.split('').map((l: string, i: number) => (
+                  <WosBlock
+                    key={l}
+                    letter={l}
+                    hidden={hiddens.includes(i)}
+                    fake={fakes.some((f) => f === l)}
+                  />
+                ))}
+              </WosWord>
             </div>
           </div>
         </section>
