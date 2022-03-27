@@ -68,6 +68,7 @@
 
 .word-board--anagram {
   @apply
+    w-fit
     bg-white
     p-3
     flex
@@ -75,7 +76,6 @@
     space-y-1
     justify-center
     items-center
-    w-fit
     rounded-lg
     border-4
     border-solid
@@ -83,36 +83,3 @@
   ;
 }
 
-.wos-word {
-  @apply
-  flex
-  gap-2
-}
-
-.wos-block {
-  @apply
-    text-center
-    uppercase
-    p-4
-    border-4
-    border-solid
-    border-black-3
-    text-black-3
-    bg-white
-    rounded-lg
-    h-20
-    w-20
-    text-5xl
-    flex
-    justify-center
-    items-center
-  ;
-}
-
-.wos-block--hidden {
-  @apply bg-yellow;
-}
-
-.wos-block--fake {
-  @apply bg-red;
-}

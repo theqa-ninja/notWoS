@@ -1,0 +1,40 @@
+.wos-word {
+  @apply
+    /* grid */
+    gap-2
+    items-center
+    justify-center
+    w-auto
+    flex
+    flex-wrap
+  ;
+}
+
+.wos-block {
+  @apply
+    text-center
+    uppercase
+    p-4
+    border-4
+    border-solid
+    border-black-3
+    text-black-3
+    bg-white
+    rounded-lg
+    h-20
+    w-20
+    text-5xl
+    flex
+    justify-center
+    items-center
+  ;
+
+}
+
+.wos-block--hidden {
+  @apply bg-yellow;
+}
+
+.wos-block--fake {
+  @apply bg-red;
+}
