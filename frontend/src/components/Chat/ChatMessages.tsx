@@ -17,7 +17,7 @@ const ChatMessages = ({ messages }: { messages: ChatMessageType[] }) => {
 
   return (
     <>
-      <main className="sidebar-body">
+      <main className="sidebar-body hidden lg:flex">
         <div className="flex flex-col justify-end h-fit min-h-full">
           <ul className="chat" ref={chatRef}>
             {messages.map((m, i) => (
