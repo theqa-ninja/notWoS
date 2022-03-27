@@ -16,7 +16,11 @@ function WosBlock({ letter, hidden, fake }: WosBlockProps) {
     'wos-block--hidden': hidden,
     'wos-block--fake': fake
   });
-  return <span className={classes}>{hidden ? '?' : letter}</span>;
+  return (
+    <span id={letter} className={classes}>
+      {hidden ? '?' : letter}
+    </span>
+  );
 }
 
 export default WosBlock;
