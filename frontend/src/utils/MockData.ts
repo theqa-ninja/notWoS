@@ -10,6 +10,7 @@ export const Usernames = [
 
 export const ThemeColors = [
   'maroon',
+  'red',
   'rosewater',
   'flamingo',
   'mauve',
@@ -20,6 +21,34 @@ export const ThemeColors = [
   'teal',
   'blue',
   'sky',
-  'blue',
   'lavender'
+];
+
+export const words = [
+  'temperature',
+  'putter',
+  'premature',
+  'tamperer',
+  'permeate',
+  'amputee',
+  'trumpet',
+  'tempura',
+  'mature',
+  'mutate',
+  'repeat',
+  'retear',
+  'matte',
+  'rearm',
+  'puree',
+  'reaper',
+  'rapture',
+  'tamper',
+  'temper',
+  'purer',
+  'treat',
+  'terra',
+  'eater',
+  'tarre',
+  'turret',
+  'repute'
 ];
