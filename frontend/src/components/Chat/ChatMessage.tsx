@@ -1,6 +1,6 @@
 export interface ChatMessageType {
   username: string;
-  color: string;
+  color: Color;
   message: string;
 }
 

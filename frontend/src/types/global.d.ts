@@ -87,38 +87,33 @@ declare type LevelState = {
   completed: boolean;
 };
 
-// declare const Colors = {
-//   maroon: 'maroon',
-//   rosewater: 'rosewater',
-//   flamingo: 'flamingo',
-//   mauve: 'mauve',
-//   pink: 'pink',
-//   peach: 'peach',
-//   yellow: 'yellow',
-//   green: 'green',
-//   teal: 'teal',
-//   blue: 'blue',
-//   sky: 'sky',
-//   blue: 'blue',
-//   lavender: 'lavender'
+// export const Colors = {
+//   maroon: 'maroon' as Color,
+//   rosewater: 'rosewater' as Color,
+//   flamingo: 'flamingo' as Color,
+//   mauve: 'mauve' as Color,
+//   pink: 'pink' as Color,
+//   peach: 'peach' as Color,
+//   yellow: 'yellow' as Color,
+//   green: 'green' as Color,
+//   teal: 'teal' as Color,
+//   blue: 'blue' as Color,
+//   sky: 'sky' as Color,
+//   blue: 'blue' as Color,
+//   lavender: 'lavender' as Color
 // };
 
-// declare type ChatMessageType = {
-//   username: string;
-//   key: string;
-//   color:
-//     | 'maroon'
-//     | 'rosewater'
-//     | 'flamingo'
-//     | 'mauve'
-//     | 'pink'
-//     | 'peach'
-//     | 'yellow'
-//     | 'green'
-//     | 'teal'
-//     | 'blue'
-//     | 'sky'
-//     | 'blue'
-//     | 'lavender';
-//   message: string;
-// };
+declare type Color =
+  | 'maroon'
+  | 'rosewater'
+  | 'flamingo'
+  | 'mauve'
+  | 'pink'
+  | 'peach'
+  | 'yellow'
+  | 'green'
+  | 'teal'
+  | 'blue'
+  | 'sky'
+  | 'blue'
+  | 'lavender';

@@ -8,32 +8,7 @@ import Chat from 'components/Chat/Chat';
 import { ChatMessageType } from 'components/Chat/ChatMessage';
 
 import { useState, useEffect } from 'react';
-
-const Usernames = [
-  'kironto',
-  'qa_ninja',
-  'xhumming',
-  'hemidex',
-  'lunar_marya',
-  'staymad',
-  '7kats'
-];
-
-const Colors = [
-  'maroon',
-  'rosewater',
-  'flamingo',
-  'mauve',
-  'pink',
-  'peach',
-  'yellow',
-  'green',
-  'teal',
-  'blue',
-  'sky',
-  'blue',
-  'lavender'
-];
+import { Usernames, ThemeColors } from 'utils/MockData';
 
 const LayoutGame = () => {
   const [messages, setMessages] = useState<ChatMessageType[]>([]);
@@ -49,9 +24,15 @@ const LayoutGame = () => {
 
   const submitMessage = () => {
     const message: string = Math.floor(Math.random() * 100000).toString();
-    const username = Usernames[Math.floor(Math.random() * Usernames.length)];
-    const color = Colors[Math.floor(Math.random() * Colors.length)];
-    const newMessage: ChatMessageType = { message, username, color };
+    const username: string =
+      Usernames[Math.floor(Math.random() * Usernames.length)];
+    const color: string =
+      ThemeColors[Math.floor(Math.random() * ThemeColors.length)];
+    const newMessage: ChatMessageType = {
+      message,
+      username,
+      color: color as Color
+    };
     setMessages((s) => {
       return [...s, newMessage];
     });
