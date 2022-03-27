@@ -4,6 +4,7 @@
 @import "components/chat.css";
 @import "components/game.css";
 @import "components/wos-word.css";
+@import "components/wos-board.css";
 
 .heading-03 {
   @apply

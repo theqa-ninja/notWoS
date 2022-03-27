@@ -1,51 +1,23 @@
 import Sidebar from 'components/Sidebar/Sidebar';
-import WosBlock from 'components/WosWord/WosBlock';
-import WosWord from 'components/WosWord/WosWord';
-import { generateRandomLetter, scrambleWord } from 'utils/Scramble';
+import WosBoard from 'components/WosBoard/WosBoard';
 
 const LayoutGame = () => {
-  const word = 'temperature';
-  let scrambled = scrambleWord(word);
-  const numOfFakes = 1;
-  const numOfHidden = 2;
-  const hiddens: number[] = [];
-  const fakes: string[] = [];
-
-  for (let i = 0; i < numOfFakes; i++) {
-    // TODO: random letter should not also be a letter that's already in original word?
-    const rand = generateRandomLetter();
-    fakes.push(rand);
-    scrambled += rand;
-  }
-
-  for (let i = 0; i < numOfHidden; i++) {
-    hiddens.push(Math.floor(Math.random() * scrambled.length));
-  }
-
   return (
     <>
       <main className="game">
         <section className="game-wos">
-          <div className="word-board">
-            <div className="word-board--message">
-              <span className="word-board--text">
-                lunar_marya found a word!
-              </span>
-            </div>
-            <div className="word-board--anagram">
-              <span className="text-lg text-center text-background uppercase">
-                unscramble me
-              </span>
-              <WosWord>
-                {scrambled.split('').map((l: string, i: number) => (
-                  <WosBlock
-                    key={l}
-                    letter={l}
-                    hidden={hiddens.includes(i)}
-                    fake={fakes.some((f) => f === l)}
-                  />
-                ))}
-              </WosWord>
+          <WosBoard annoucement="lunar_marya found a word" />
+          <div className="flex gap-4 justify-end items-start w-full h-full">
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2 justify-between p-2 w-fit bg-black-3 rounded-lg">
+                <div className="flex gap-2 items-center">
+                  <span className="text-yellow">hi</span>
+                  <span className="text-white">xhumming</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="w-8 h-8 bg-rosewater rounded"></span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
