@@ -10,12 +10,14 @@
   @apply
     p-10
     w-full
-    h-full
+    h-screen
+    overflow-hidden
+    max-h-screen
     bg-background
     font-fredoka
     flex
     flex-col
-    space-y-4
+    space-y-6
     items-center
   ;
 }

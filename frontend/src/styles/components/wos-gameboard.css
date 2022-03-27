@@ -1,0 +1,120 @@
+.wos-gameboard {
+  @apply
+    justify-items-end
+    justify-center
+    content-center
+    gap-2
+    items-center
+    w-full
+    h-full
+    grid
+    grid-cols-3
+  ;
+}
+
+.wos-guesses {
+  @apply flex flex-col gap-2 flex-wrap w-full h-full items-end;
+}
+
+.wos-guess {
+  @apply
+    flex
+    gap-2
+    justify-between
+    p-2
+    w-fit
+    h-fit
+    bg-black-3
+    rounded-lg
+    uppercase
+    text-base
+  ;
+}
+
+.wos-guess-player {
+  @apply
+    flex
+    gap-2
+    items-center
+  ;
+}
+
+.wos-guess--lock {
+  @apply
+    h-6
+    w-6
+    text-yellow
+  ;
+}
+
+
+.wos-guess-blocks {
+  @apply
+    flex
+    gap-1
+  ;
+}
+
+.wos-guess-block {
+  @apply
+    text-xl
+    text-center
+    text-background
+    flex
+    justify-center
+    items-center
+    w-8
+    h-8
+    rounded;
+}
+
+.wos-guess-block--lavender {
+  @apply bg-lavender;
+}
+
+.wos-guess-block--maroon {
+  @apply bg-maroon;
+}
+
+.wos-guess-block--flamingo {
+  @apply bg-flamingo;
+}
+
+.wos-guess-block--rosewater {
+  @apply bg-rosewater;
+}
+
+.wos-guess-block--blue {
+  @apply bg-blue;
+}
+
+.wos-guess-block--mauve {
+  @apply bg-mauve;
+}
+
+.wos-guess-block--pink {
+  @apply bg-pink;
+}
+
+.wos-guess-block--peach {
+  @apply bg-peach;
+}
+
+.wos-guess-block--yellow {
+  @apply bg-yellow;
+}
+
+.wos-guess-block--green {
+  @apply bg-green;
+}
+
+.wos-guess-block--teal {
+  @apply bg-teal;
+}
+
+.wos-guess-block--sky {
+  @apply bg-teal;
+}
+.wos-guess-block--red {
+  @apply bg-red;
+}
