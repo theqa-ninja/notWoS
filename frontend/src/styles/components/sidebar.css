@@ -14,7 +14,7 @@
     width: min(400px, 25%);
 }
 
-.sidebar > .sidebar-header {
+.sidebar-header {
     @apply
       font-fredoka
       border-4
@@ -28,14 +28,14 @@
       w-full;
 }
 
-.sidebar > .sidebar-body {
+.sidebar-body {
   @apply
     overflow-y-auto
     h-full
   ;
 }
 
-.sidebar > .sidebar-footer {
+.sidebar-footer {
   @apply
     flex
     flex-col
