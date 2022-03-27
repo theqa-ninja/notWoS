@@ -1,10 +1,10 @@
 import Sidebar from 'components/Sidebar/Sidebar';
 import WosBlock from 'components/WosWord/WosBlock';
 import WosWord from 'components/WosWord/WosWord';
-import { generateRandomLetter, scrambleWord } from 'utils/Random';
+import { generateRandomLetter, scrambleWord } from 'utils/Scramble';
 
 const LayoutGame = () => {
-  const word = 'fishhook';
+  const word = 'temperature';
   let scrambled = scrambleWord(word);
   const numOfFakes = 1;
   const numOfHidden = 2;

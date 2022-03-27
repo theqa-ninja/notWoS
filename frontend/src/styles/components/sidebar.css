@@ -1,6 +1,6 @@
 .sidebar {
     @apply
-      bg-black-0
+        bg-black-0
         p-4
         h-screen
         border-l-4
@@ -11,7 +11,7 @@
         flex-col
         space-y-4
     ;
-    width: min(400px, 25%);
+    width: min(400px, 30%);
 }
 
 .sidebar-header {

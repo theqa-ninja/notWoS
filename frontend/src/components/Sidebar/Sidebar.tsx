@@ -1,12 +1,11 @@
 import { CogIcon } from '@heroicons/react/solid';
-import SidebarBody from 'components/Sidebar/SidebarBody';
-import SidebarFooter from 'components/Sidebar/SidebarFooter';
 import SidebarHeader from 'components/Sidebar/SidebarHeader';
-import Chat from 'components/Chat/Chat';
+import ChatMessages from 'components/Chat/ChatMessages';
 import { ChatMessageType } from 'components/Chat/ChatMessage';
 
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Usernames, ThemeColors } from 'utils/MockData';
+import ChatInput from 'components/Chat/ChatInput';
 
 const Sidebar = () => {
   const [messages, setMessages] = useState<ChatMessageType[]>([]);
@@ -50,23 +49,8 @@ const Sidebar = () => {
       <SidebarHeader>
         <h3 className="heading-03">guess</h3>
       </SidebarHeader>
-      <SidebarBody>
-        <Chat messages={messages} />
-      </SidebarBody>
-      <form onSubmit={submitMessage}>
-        <SidebarFooter>
-          <input type="text" value={guess} onChange={onGuess} />
-          <section className="flex flex-row justify-between items-center space-x-2 w-full">
-            <CogIcon className="w-6 h-6 hover:text-pink transition-all hover:scale-125 hover:rotate-45 hover:cursor-pointer" />
-            <button
-              type="submit"
-              className="py-1 px-2 w-fit h-fit font-fredoka text-background uppercase bg-green rounded border border-gray-2 border-solid"
-            >
-              guess
-            </button>
-          </section>
-        </SidebarFooter>
-      </form>
+      <ChatMessages messages={messages} />
+      <ChatInput value={guess} onChange={onGuess} onSubmit={submitMessage} />
     </aside>
   );
 };
