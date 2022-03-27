@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { CogIcon } from '@heroicons/react/solid';
 import SidebarBody from 'components/Sidebar/SidebarBody';
 import SidebarFooter from 'components/Sidebar/SidebarFooter';
@@ -9,7 +8,6 @@ import { ChatMessageType } from 'components/Chat/ChatMessage';
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Usernames, ThemeColors } from 'utils/MockData';
 
-/* eslint-disable prettier/prettier */
 const Sidebar = () => {
   const [messages, setMessages] = useState<ChatMessageType[]>([]);
   const [guess, setGuess] = useState<string>('');

@@ -1,3 +1,13 @@
 input[type="text"] {
-  @apply p-2 w-full text-white bg-black-2 rounded-lg;
+  @apply
+    focus:outline-accent
+    focus:outline-1
+    p-2
+    w-full
+    text-white
+    bg-black-2
+    rounded-lg
+    border
+    border-solid
+    border-accent;
 }
