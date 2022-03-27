@@ -4,12 +4,13 @@ export interface ChatMessageType {
   message: string;
 }
 
+import classnames from 'classnames';
+
 function ChatMessage({ username, color, message }: ChatMessageType) {
+  const classes = classnames(`chat-username chat-username--${color}`);
   return (
     <li className="animate-fade-in chat-message">
-      <span className={`chat-username chat-username--${color}`}>
-        {username}
-      </span>
+      <span className={classes}>{username}</span>
       <span className="chat-guess">{message}</span>
     </li>
   );
