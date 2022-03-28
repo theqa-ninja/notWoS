@@ -1,19 +1,15 @@
-.wos-gameboard {
+.wos-guesses {
   @apply
-    justify-items-end
-    justify-center
-    content-center
+    flex
+    flex-col
     gap-2
-    items-center
+    flex-wrap
     w-full
     h-full
-    grid
-    grid-cols-3
-  ;
-}
-
-.wos-guesses {
-  @apply flex flex-col gap-2 flex-wrap w-full h-full items-end;
+    h-fit
+    max-h-[34rem]
+    justify-start
+    items-end;
 }
 
 .wos-guess {
@@ -57,7 +53,7 @@
 
 .wos-guess-block {
   @apply
-    text-xl
+    text-lg
     text-center
     text-background
     flex

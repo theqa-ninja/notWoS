@@ -5,7 +5,7 @@
 @import "components/game.css";
 @import "components/wos-word.css";
 @import "components/wos-board.css";
-@import "components/wos-gameboard.css";
+@import "components/wos-guess.css";
 
 .heading-03 {
   @apply
