@@ -24,6 +24,7 @@
     rounded-lg
     uppercase
     text-base
+    max-w-[38rem]
   ;
 }
 
@@ -53,7 +54,7 @@
 
 .wos-guess-block {
   @apply
-    text-lg
+    text-xl
     text-center
     text-background
     flex
