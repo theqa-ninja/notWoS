@@ -104,6 +104,7 @@ declare type LevelState = {
 // };
 
 declare type Color =
+  | 'red'
   | 'maroon'
   | 'rosewater'
   | 'flamingo'

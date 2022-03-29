@@ -74,6 +74,10 @@
   @apply text-lavender;
 }
 
+.chat-username--red {
+  @apply text-red;
+}
+
 .chat-guess {
   @apply text-white;
 }
