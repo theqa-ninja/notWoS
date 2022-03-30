@@ -1,6 +1,6 @@
 import Sidebar from 'components/Sidebar/Sidebar';
 import WosBoard from 'components/WosBoard/WosBoard';
-import WosGuess from 'components/WosGuess';
+import WosGuess from 'components/WosGuess/WosGuess';
 import { words } from 'utils/MockData';
 
 const LayoutGame = () => {
@@ -25,7 +25,7 @@ const LayoutGame = () => {
                 locked={Math.floor(Math.random() * 3) === 1}
                 hidden={Math.floor(Math.random() * 3) === 1}
                 length={i.length}
-                />
+              />
             ))}
           </ul>
         </section>
