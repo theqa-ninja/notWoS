@@ -87,22 +87,6 @@ declare type LevelState = {
   completed: boolean;
 };
 
-// export const Colors = {
-//   maroon: 'maroon' as Color,
-//   rosewater: 'rosewater' as Color,
-//   flamingo: 'flamingo' as Color,
-//   mauve: 'mauve' as Color,
-//   pink: 'pink' as Color,
-//   peach: 'peach' as Color,
-//   yellow: 'yellow' as Color,
-//   green: 'green' as Color,
-//   teal: 'teal' as Color,
-//   blue: 'blue' as Color,
-//   sky: 'sky' as Color,
-//   blue: 'blue' as Color,
-//   lavender: 'lavender' as Color
-// };
-
 declare type Color =
   | 'red'
   | 'maroon'
@@ -116,5 +100,4 @@ declare type Color =
   | 'teal'
   | 'blue'
   | 'sky'
-  | 'blue'
   | 'lavender';
