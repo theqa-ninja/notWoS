@@ -6,6 +6,7 @@
 @import "components/wos-word.css";
 @import "components/wos-board.css";
 @import "components/wos-guess.css";
+@import "components/lockout-bar.css";
 
 .heading-03 {
   @apply

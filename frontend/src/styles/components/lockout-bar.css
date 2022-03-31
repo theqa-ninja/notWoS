@@ -1,0 +1,99 @@
+.lockout {
+  @apply
+    w-[90%]
+    h-fit
+    flex
+    items-center
+  ;
+}
+
+.timer {
+  @apply
+    flex
+    content-center
+    items-center
+    w-full
+    align-middle
+    z-0
+    overflow-hidden
+  ;
+}
+
+.lockout-clock {
+  @apply
+    max-h-[3rem]
+    min-w-[3rem]
+    h-[3rem]
+    w-[3rem]
+    flex
+    items-center
+    p-2
+    text-yellow
+    rounded-full
+    z-20
+  ;
+}
+
+.timer-checkpoint {
+  @apply
+    max-h-[3rem]
+    min-w-[3rem]
+    h-[3rem]
+    w-[3rem]
+    flex
+    items-center
+    p-2
+    text-yellow
+    bg-black-3
+    rounded-full
+    border-2
+    border-solid
+    border-yellow
+  ;
+  z-index: 100;
+}
+
+.timer-lock {
+  @apply text-yellow;
+}
+
+.timer-bar {
+  @apply
+    w-full
+    h-3
+    bg-black-3
+  ;
+}
+
+.timer-bar--filled {
+  @apply
+    h-3
+    bg-teal;
+}
+
+.timer-lead {
+    @apply
+      rounded-l-lg;
+}
+
+.timer-mid {
+  @apply
+    rounded-lg
+  ;
+}
+
+.timer-end {
+  @apply
+    rounded-r-lg
+  ;
+}
+
+/* the first lockout timer bar*/
+.lockout > div:nth-child(2) {
+  @apply rounded-l-lg;
+}
+
+/* the last lockout timer bar*/
+.lockout > div:last-child {
+  @apply rounded-r-lg;
+}
