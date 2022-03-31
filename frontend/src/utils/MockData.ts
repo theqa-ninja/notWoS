@@ -8,22 +8,6 @@ export const Usernames = [
   '7kats'
 ];
 
-export const ThemeColors = [
-  'maroon',
-  'red',
-  'rosewater',
-  'flamingo',
-  'mauve',
-  'pink',
-  'peach',
-  'yellow',
-  'green',
-  'teal',
-  'blue',
-  'sky',
-  'lavender'
-];
-
 export const words = [
   'temperature',
   'putter',
