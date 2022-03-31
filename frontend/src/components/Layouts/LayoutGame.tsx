@@ -1,6 +1,7 @@
 import Sidebar from 'components/Sidebar/Sidebar';
 import WosBoard from 'components/WosBoard/WosBoard';
 import WosGuess from 'components/WosGuess/WosGuess';
+import LockoutBar from 'components/LockoutBar/LockoutBar';
 import { words } from 'utils/MockData';
 
 const LayoutGame = () => {
@@ -16,6 +17,9 @@ const LayoutGame = () => {
       <main className="game">
         <section className="game-wos">
           <WosBoard annoucement="lunar_marya found a word" />
+
+          <LockoutBar />
+
           <ul className="wos-guesses">
             {list.map((i: string) => (
               <WosGuess
@@ -36,3 +40,9 @@ const LayoutGame = () => {
 };
 
 export default LayoutGame;
+
+//           <div className="timer">
+//             <div className="progress">
+//               <div className="progress-bar" style={{ width: '10%' }}></div>
+//             </div>
+//           </div>
