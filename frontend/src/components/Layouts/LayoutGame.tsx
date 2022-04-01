@@ -25,8 +25,10 @@ const LayoutGame = () => {
               <WosGuess
                 key={i}
                 word={i}
-                player="lunar_marya"
-                locked={Math.floor(Math.random() * 3) === 1}
+                player={
+                  Math.floor(Math.random() * 3) === 2 ? 'lunar_marya' : ''
+                }
+                locked={Math.floor(Math.random() * 3) === 2}
                 hidden={Math.floor(Math.random() * 3) === 1}
                 length={i.length}
               />
@@ -40,9 +42,3 @@ const LayoutGame = () => {
 };
 
 export default LayoutGame;
-
-//           <div className="timer">
-//             <div className="progress">
-//               <div className="progress-bar" style={{ width: '10%' }}></div>
-//             </div>
-//           </div>

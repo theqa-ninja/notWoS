@@ -22,7 +22,7 @@ function WosGuess({ word, player, locked, hidden, length }: WosGuessProps) {
             key={w + i}
             hidden={hidden}
             length={length}
-            letter={w}
+            letter={player ? w : ''}
           />
         ))}
       </ul>
