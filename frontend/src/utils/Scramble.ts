@@ -8,12 +8,12 @@ export function generateRandomLetter(): string {
 }
 
 /**
- *  Returns a scrambled a word
- * @param word word to scramble
- * @returns string
+ * Returns a scrambled array of characters
+ * @param word - word to scramble split into an array
+ * @returns string[]
  */
-export function scrambleWord(word: string): string {
-  const cpy: string[] = word.split('');
+export function scrambleWord(word: string[]): string[] {
+  const cpy: string[] = word;
   for (let i = 0; i < word.length; i++) {
     const swapIndex = Math.floor(Math.random() * word.length);
     const tmp = cpy[i];
@@ -21,5 +21,5 @@ export function scrambleWord(word: string): string {
     cpy[swapIndex] = tmp;
   }
 
-  return cpy.join('');
+  return cpy;
 }
