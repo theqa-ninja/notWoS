@@ -14,7 +14,7 @@ interface WosBlockProps {
 function WosBlock({ letter, hidden, fake }: WosBlockProps) {
   const classes = classnames('wos-block', {
     'wos-block--hidden': hidden,
-    'wos-block--fake': fake
+    'wos-block--fake': fake && !hidden
   });
   return (
     <span id={letter} className={classes}>
