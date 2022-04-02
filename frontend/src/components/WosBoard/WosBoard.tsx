@@ -3,9 +3,9 @@ interface WordBoardProps {
 }
 
 import WosScrambled from 'components/WosWord/WosScrambled';
+import { lvl } from 'utils/MockData';
 
 function WosBoard({ annoucement }: WordBoardProps) {
-  const word = 'sunflower';
   return (
     <div className="wos-board">
       <div className="wos-board--announcement">
@@ -15,7 +15,7 @@ function WosBoard({ annoucement }: WordBoardProps) {
         <span className="text-lg text-center text-background uppercase">
           unscramble me
         </span>
-        <WosScrambled word={word}></WosScrambled>
+        <WosScrambled lvl={lvl} word={lvl.starting_word}></WosScrambled>
       </div>
     </div>
   );
