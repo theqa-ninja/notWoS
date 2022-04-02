@@ -19,11 +19,11 @@ declare type GameRoom = {
 
 declare type Level = {
   game_room: UUID;
-  starting_word: number;
+  starting_word: string;
   letters: Array<string>;
   valid_words: Array<string>;
-  fake_letters: number;
-  hidden_letters: number;
+  fake_letters: Array<string>;
+  hidden_letters: Array<string>;
   min_length: number;
   max_length: number;
   dictionary: UUID;
@@ -101,3 +101,12 @@ declare type Color =
   | 'blue'
   | 'sky'
   | 'lavender';
+
+// NOTE: a letter CANNOT be both fake and hidden
+interface Letter {
+  char: string;
+  hidden: boolean;
+  fake: boolean;
+}
+
+type Word = Letter[];
