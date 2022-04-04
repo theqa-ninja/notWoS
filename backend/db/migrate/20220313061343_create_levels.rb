@@ -16,11 +16,11 @@ class CreateLevels < ActiveRecord::Migration[7.0]
       t.integer :min_length, default: 4
       t.integer :max_length, null: false
       t.boolean :is_active, default: false
-      t.uuid :theme_id, null: true
+      t.uuid :tag_id, null: true
 
       t.timestamps
     end
-    add_foreign_key :levels, :themes, column: :theme_id
+    add_foreign_key :levels, :tags, column: :tag_id
     add_foreign_key :levels, :gamerooms, column: :gameroom_id
   end
 end

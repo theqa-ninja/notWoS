@@ -32,7 +32,7 @@ class GameroomsController < ApplicationController
   private
 
   def game_room_params
-    params.require(:game_room).permit(:name)
+    params.require(:gameroom).permit(:name)
   end
 
   # def create
