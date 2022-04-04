@@ -2,23 +2,19 @@
 
 models
 
+guessers
+- uuid
+- displayname
+- email? (if not filled in, temporary user?)
+- password (obviously useless right now)
+
 gameroom
 - uuid
 - room_name
 - room_code
 - current level
-- theme (themes.uuid)
-
-users
-- uuid
-- displayname
-- email? (if not filled in, temporary user?)
-
-guesses
-- guesser (user.uuid)
-- gameroom (gameroom.uuid)
-- valid (boolean)
-- locked? (boolean)
+- tag_id (tag.uuid)
+- creator_id (guessers.uuid)
 
 levels
 - gameroom (gameroom.uuid)
@@ -30,15 +26,26 @@ levels
 - min_length (integer)
 - max_length (integer)
 - dictionary (dictionary.uuid)
+- is_active (boolean)
+- tag_id (tag.uuid)
 
-themes
+guesses
+- guesser_id (guesser.uuid)
+- gameroom_id (gameroom.uuid)
+- level_id (level.uuid)
+- guess (string)
+- is_valid (boolean)
+- was_locked (boolean)
+
+
+tag
 - uuid
 - name (string)
 
 imported_files
 - uuid
 - filename (filename string)
-- theme_id (the theme we point it to per filename)
+- tag_id (the theme we point it to per filename)
 
 Socket Messages:
 

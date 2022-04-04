@@ -6,10 +6,13 @@ class CreateGamerooms < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.string :room_code, null: false
       t.integer :current_level, default: 0
-      t.uuid :theme_id, null: true
+      t.uuid :tag_id, null: true
+      t.boolean :is_active, default: true
+      t.uuid :creator_id, null: false
 
       t.timestamps
     end
-    add_foreign_key :gamerooms, :themes, column: :theme_id
+    add_foreign_key :gamerooms, :tags, column: :tag_id
+    add_foreign_key :gamerooms, :guessers, column: :creator_id
   end
 end

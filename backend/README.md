@@ -1,8 +1,10 @@
 # Sources
 
-Following this guide https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable
+Following this guide currently https://medium.com/@valentinowong/using-rails-action-cable-with-a-vanilla-javascript-front-end-1e00ed90067e#060d
 
-another guide https://www.pluralsight.com/guides/creating-a-chat-using-rails-action-cable
+~~Following this guide https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable~~
+
+~~another guide https://www.pluralsight.com/guides/creating-a-chat-using-rails-action-cable~~
 
 
 ## Commands to run for setting up
@@ -11,8 +13,37 @@ rbenv local 3.0.2
 bundle install
 bundle exec db:create
 bundle exec db:migrate
+bundle exec db:seed
+bundle exec rails s
 ```
 
+## Testing things
+Connect postman to `ws://localhost:3000/WoScable`
+Subscribe first to the channel
+```
+{
+    "command": "subscribe",
+    "identifier": "{\"channel\":\"GameroomChannel\", \"id\":\"6e29cd92-a9fa-4a56-93c1-10ca13e3b747\"}"
+}
+```
+
+Make a guess
+```
+{
+    "command": "message",
+    "data": "{\"action\" : \"guess\", \"level_id\":\"97b8a57b-49e5-4a0a-b3f4-3cc5f22f18c0\",\"guess\": \"blah again\"}",
+    "identifier": "{\"channel\":\"GameroomChannel\", \"id\":\"6e29cd92-a9fa-4a56-93c1-10ca13e3b747\"}"
+}
+```
+
+Make a new level!
+```
+{
+    "command": "message",
+    "data": "{\"action\" : \"new_level\"}",
+    "identifier": "{\"channel\":\"GameroomChannel\", \"id\":\"6e29cd92-a9fa-4a56-93c1-10ca13e3b747\"}"
+}
+```
 
 ## Commands ran while creating stuff
 
@@ -29,12 +60,16 @@ rails generate model guessers display_name:string email:string password:string
 rails generate model guesses guesser_id:uuid gameroom_id:uuid guess:string valid:boolean was_locked:boolean
 rails generate model themes name:string
 rails generate model imported_files filename:string theme:uuid
-rails generate model levels gameroom_id:uuid level:integer starting_word:string letters:string valid_words:string fake_letters:string hidden_letters:string min_length:integer max_length:integer theme_id:uuid
+rails generate model levels gameroom_id:uuid level:integer starting_word:string letters:string valid_words:string fake_letters:string hidden_letters:string min_length:integer max_length:integer tag_id:uuid
 rubocop -A .
 ```
 
 ## TODO:
 - [x] make models
-- [*] make websockets
+- [x] seed data
+- [x] make websockets
+- [ ] make APIs for calls
+- [ ] clean up websockets?
+- [ ] clean up after levels / games finish
 - [ ] make word list database
 - [ ] make api to import new word lists

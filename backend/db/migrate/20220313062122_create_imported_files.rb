@@ -4,10 +4,10 @@ class CreateImportedFiles < ActiveRecord::Migration[7.0]
   def change
     create_table :imported_files, id: :uuid do |t|
       t.string :filename
-      t.uuid :theme_id
+      t.uuid :tag_id
 
       t.timestamps
     end
-    add_foreign_key :imported_files, :themes, column: :theme_id
+    add_foreign_key :imported_files, :tags, column: :tag_id
   end
 end

@@ -7,8 +7,8 @@ class CreateGuesses < ActiveRecord::Migration[7.0]
       t.uuid :gameroom_id, null: false
       t.uuid :level_id, null: false
       t.string :guess
-      t.boolean :valid
-      t.boolean :was_locked
+      t.boolean :is_valid
+      t.boolean :was_locked, default: true
 
       t.timestamps
     end
