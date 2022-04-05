@@ -1,5 +1,10 @@
 export interface IWosWord {
   letters: Letter[];
+  word: string;
+  showFakes: boolean;
+  scramble: () => Letter[];
+  unHide: () => void;
+  toggleFakes: () => void;
 }
 
 export default class WosWord implements IWosWord {
