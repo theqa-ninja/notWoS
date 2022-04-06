@@ -20,11 +20,15 @@ class GameroomChannel < ApplicationCable::Channel
     data['level_id'] = @level.id
     temp = Level.new.next_level(data)
     @level = temp if temp.instance_of?(Level)
+    GameroomChannel.broadcast_to(@game_room, temp)
   end
 
   def new_guess(data)
     data['guesser_id'] = @guesser.id
     data['gameroom_id'] = @game_room.id
-    Guess.new.take_a_guess(data)
+    GameroomChannel.broadcast_to(@game_room, Guess.new.take_a_guess(data))
+  rescue StandardError
+    # TODO: put better error logging message here
+    print 'failed to find stuff'
   end
 end
