@@ -24,13 +24,11 @@ class GameroomChannel < ApplicationCable::Channel
   end
 
   def new_guess(data)
-    begin
-      data['guesser_id'] = @guesser.id
-      data['gameroom_id'] = @game_room.id
-      GameroomChannel.broadcast_to(@game_room, Guess.new.take_a_guess(data))
-    rescue
-      # TODO: put better error logging message here
-      print 'failed to find stuff'
-    end
+    data['guesser_id'] = @guesser.id
+    data['gameroom_id'] = @game_room.id
+    GameroomChannel.broadcast_to(@game_room, Guess.new.take_a_guess(data))
+  rescue StandardError
+    # TODO: put better error logging message here
+    print 'failed to find stuff'
   end
 end
