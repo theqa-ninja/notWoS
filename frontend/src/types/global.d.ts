@@ -1,5 +1,7 @@
 declare type CallbackType = () => void;
 declare type CallbackFunction = (cb: CallbackType) => void;
+declare function f<T>(x: T): unknown;
+declare type Fn = typeof f;
 
 /**
  * Type Alias
@@ -28,17 +30,6 @@ declare type Level = {
   max_length: number;
   dictionary: UUID;
 };
-
-/**
- * Controllers
- */
-declare interface IClientSocketController {
-  onUpdateGameState: CallbackFunction;
-  onNewGuess: CallbackFunction;
-  onCreateGameRoom: CallbackFunction;
-  emitJoinRoom: CallbackFunction;
-  emitCreateGuess: CallbackFunction;
-}
 
 declare interface IGame {
   addLevel: (l: Level) => void;
@@ -102,11 +93,8 @@ declare type Color =
   | 'sky'
   | 'lavender';
 
-// NOTE: a letter CANNOT be both fake and hidden
-interface Letter {
+declare interface Letter {
   char: string;
   hidden: boolean;
   fake: boolean;
 }
-
-type Word = Letter[];

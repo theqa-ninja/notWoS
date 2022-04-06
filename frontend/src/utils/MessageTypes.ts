@@ -1,16 +1,35 @@
-type MessageType = {
-  [key: string]: string;
+export enum MessageType {
+  subscribe = 100,
+  message = 200
+}
+
+export function MessageTypeToCommand(t: MessageType | number): string {
+  return MessageType[t];
+}
+
+export type MessageRequest = {
+  [MessageType.subscribe]: SocketRequest;
 };
 
-const ON_MESSAGE: MessageType = {
-  createGameRoom: 'create game room',
-  updateGameState: 'update game state',
-  newGuess: 'new guess'
+declare type SocketRequest = {
+  command: string;
+  identifier: Identifier;
 };
 
-const EMIT_MESSAGE: MessageType = {
-  joinRoom: 'join room',
-  createGuess: 'create guess'
+export type SocketResponse<T> = {
+  type?: string;
+  identifier: Identifier;
+  message?: T;
 };
 
-export { EMIT_MESSAGE, ON_MESSAGE };
+export type Identifier = {
+  channel: UUID;
+  id: string;
+};
+
+// TODO: redundant?
+export type SocketRequestPayload<T> = {
+  command: string;
+  data?: T;
+  identifier: Identifier;
+};

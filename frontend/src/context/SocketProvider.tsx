@@ -1,12 +1,12 @@
-import ClientSocketController from '../utils/ClientSocketController';
+import ClientSocketController, {
+  IClientSocketController
+} from '../utils/ClientSocketController';
 import { createContext, useContext, ReactNode } from 'react';
 
 const SocketContext = createContext<IClientSocketController>({
-  onNewGuess: () => null,
-  onUpdateGameState: () => null,
-  onCreateGameRoom: () => null,
-  emitJoinRoom: () => null,
-  emitCreateGuess: () => null
+  request: () => null,
+  subscribe: () => null,
+  unsubscribe: () => null
 });
 
 // NOTE: public hook for use
