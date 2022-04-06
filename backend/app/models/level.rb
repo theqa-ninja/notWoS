@@ -23,10 +23,9 @@ class Level < ApplicationRecord
     if new_level.save
       current_level.save!
       game_room.save!
-      GameroomChannel.broadcast_to(game_room, new_level)
-      new_level
+      {success: true, type: new_level }
     else
-      { json: { errors: level.errors.full_messages }, status: 422 }
+      {success: false, errors: level.errors.full_messages, type: new_level }
     end
   end
 

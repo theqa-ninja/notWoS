@@ -26,11 +26,10 @@ class Guess < ApplicationRecord
                   )
                 end
     # TODO: need logic here to set if valid / was_locked
-    GameroomChannel.broadcast_to(game_room, new_guess)
     if new_guess.save
-      new_guess
+      {success: true, type: new_guess}
     else
-      { json: { errors: new_guess.errors.full_messages, status: 422 } }
+      {success: false, type: new_guess, errors: new_guess.errors.full_messages }
     end
   end
 end
