@@ -4,7 +4,11 @@
  * is a TYPE of subsciption (MESSAGE_TYPE) and then the subscription function
  */
 
-import { MessageRequest, MessageType } from './MessageTypes';
+import {
+  MessageRequest,
+  MessageType,
+  MessageTypeToString
+} from 'lib/MessageTypes';
 
 declare function r<T extends MessageType | number>(
   t: T,
@@ -33,8 +37,8 @@ export default class ClientSocketController implements IClientSocketController {
     };
     this._socket.onmessage = (event: MessageEvent<string>) => {
       const data = JSON.parse(event.data);
-      if (data.type == 'confirm_subscription') {
-        console.log(data.identifier);
+      if (data.type === MessageTypeToString(MessageType.confirm_subscription)) {
+        console.log('confirmed subscription');
       }
     };
   }
