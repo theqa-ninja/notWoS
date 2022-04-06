@@ -23,9 +23,9 @@ class Level < ApplicationRecord
     if new_level.save
       current_level.save!
       game_room.save!
-      {success: true, type: new_level }
+      {type: 'new_level', success: true, data: new_level }
     else
-      {success: false, errors: level.errors.full_messages, type: new_level }
+      {type: 'new_level', success: false, errors: level.errors.full_messages, data: new_level }
     end
   end
 

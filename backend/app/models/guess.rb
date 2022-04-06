@@ -27,9 +27,9 @@ class Guess < ApplicationRecord
                 end
     # TODO: need logic here to set if valid / was_locked
     if new_guess.save
-      {success: true, type: new_guess}
+      {type: 'new_guess', success: true, data: new_guess}
     else
-      {success: false, type: new_guess, errors: new_guess.errors.full_messages }
+      {type: 'new_guess', success: false, data: new_guess, errors: new_guess.errors.full_messages }
     end
   end
 end
