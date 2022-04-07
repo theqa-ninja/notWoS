@@ -56,7 +56,7 @@ function Button({
 
   return popup ? (
     <div className="btn-wrappper">
-      <button className="btn-popup" onClick={onClick} {...rest}>
+      <button {...rest} className="btn-popup" onClick={onClick}>
         <div className={btnTextClasses}>{children}</div>
         <div aria-hidden="true" className={btnShadowClasses}></div>
       </button>
