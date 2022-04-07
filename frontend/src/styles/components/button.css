@@ -45,6 +45,7 @@
     p-2
     min-w-[5rem]
     text-center
+    hover:font-bold
   ;
 }
 
