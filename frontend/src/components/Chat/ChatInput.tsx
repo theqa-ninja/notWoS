@@ -1,5 +1,6 @@
 import { CogIcon } from '@heroicons/react/solid';
 import { FormEventHandler, ChangeEventHandler } from 'react';
+import Button from 'components/Button';
 
 function ChatInput(props: {
   onSubmit: FormEventHandler<HTMLFormElement> | undefined;
@@ -12,12 +13,9 @@ function ChatInput(props: {
         <input type="text" value={props.value} onChange={props.onChange} />
         <section className="flex flex-row justify-between items-center space-x-2 w-full">
           <CogIcon className="w-6 h-6 hover:text-pink transition-all hover:scale-125 hover:rotate-45 hover:cursor-pointer" />
-          <button
-            type="submit"
-            className="py-1 px-2 w-fit h-fit font-fredoka text-background uppercase bg-green rounded border border-gray-2 border-solid"
-          >
+          <Button type="submit" color="green">
             guess
-          </button>
+          </Button>
         </section>
       </footer>
     </form>
