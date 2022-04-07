@@ -1,0 +1,77 @@
+.btn-wrapper {
+  @apply
+    flex
+    justify-start
+    items-start;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.btn {
+}
+
+.btn-popup {
+  @apply
+    flex
+    flex-col
+    justify-center
+    uppercase
+    rounded
+    pb-2
+    pl-2
+    transition-all
+    duration-100
+    relative
+    hover:mt-2
+    hover:mr-2
+    hover:pb-0
+    hover:pl-0
+  ;
+}
+
+.btn {
+  @apply
+    flex
+    flex-col
+    justify-center
+    uppercase
+    rounded
+    transition-all
+    text-background
+    font-fredoka
+    items-center
+    z-10
+    p-2
+    min-w-[5rem]
+    text-center
+  ;
+}
+
+
+.btn-shadow {
+  @apply
+    absolute
+    left-0
+    top-auto
+    right-auto
+    bottom-0
+    w-[95%]
+    h-[90%]
+    bg-black-1
+    border-2
+    border-solid
+    rounded
+    z-0
+  ;
+}
+
+.btn-outline {
+  @apply
+    text-white
+    border-teal
+    border-2
+    border-solid
+    bg-background
+  ;
+}
