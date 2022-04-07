@@ -27,6 +27,11 @@
     hover:mr-2
     hover:pb-0
     hover:pl-0
+    active:mt-2
+    active:mr-2
+    active:pb-0
+    active:pl-0
+    hover:font-bold
   ;
 }
 
