@@ -8,9 +8,6 @@
   grid-template-rows: auto;
 }
 
-.btn {
-}
-
 .btn-popup {
   @apply
     flex
@@ -31,7 +28,7 @@
     active:mr-2
     active:pb-0
     active:pl-0
-    hover:font-bold
+    active:font-bold
   ;
 }
 
@@ -49,8 +46,7 @@
     z-10
     p-2
     min-w-[5rem]
-    text-center
-    hover:font-bold
+    active:font-bold
   ;
 }
 
@@ -74,8 +70,6 @@
 
 .btn-outline {
   @apply
-    text-white
-    border-teal
     border-2
     border-solid
     bg-background
