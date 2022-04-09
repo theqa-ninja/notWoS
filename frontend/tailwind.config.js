@@ -57,13 +57,23 @@ module.exports = {
         roboto: ['Roboto', ...defaultTheme.fontFamily.sans]
       },
       animation: {
-        'fade-in': 'fadeIn 0.3s ease-in'
+        'fade-in': 'fadeIn 0.3s ease-in',
+        'scale-in': 'scaleIn 4s ease-in',
+        'scale-out': 'scaleOut 0.5s ease-in'
       },
 
       keyframes: () => ({
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '100%' }
+        },
+        scaleIn: {
+          '0%': { transform: 'scale(0)' },
+          '100%': { transform: 'scale(1)' }
+        },
+        scaleOut: {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(0)' }
         }
       })
     }
