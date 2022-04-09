@@ -7,6 +7,12 @@ body {
     text-white;
 }
 
+#root {
+  display:flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
 :root {
   --theme-flamingo: 242, 205, 205;
   --theme-mauve: 221, 182, 242;
