@@ -11,9 +11,11 @@ interface ButtonProps
   color?: Color;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 function Button({
+  size = 'sm',
   popup = false,
   color = 'teal',
   kind = 'solid',
@@ -53,7 +55,10 @@ function Button({
       '!text-teal': kind === 'outline' && color === Colors.teal,
       '!text-blue': kind === 'outline' && color === Colors.blue,
       '!text-sky': kind === 'outline' && color === Colors.sky,
-      '!text-lavender': kind === 'outline' && color === Colors.lavender
+      '!text-lavender': kind === 'outline' && color === Colors.lavender,
+      'text-lg': size === 'sm',
+      'text-xl': size === 'md',
+      'text-2xl': size === 'lg'
     }
   );
 
