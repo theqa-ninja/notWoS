@@ -25,8 +25,7 @@ function Button({
   const btnTextClasses = classnames(
     [
       `btn ${kind === 'outline' && 'btn-outline'}`,
-      `${kind === 'outline' && `border-${color}`}`,
-      className
+      `${kind === 'outline' && `border-${color}`}`
     ].join(' '),
     {
       'bg-maroon': color === Colors.maroon,
@@ -75,14 +74,18 @@ function Button({
   });
 
   return popup ? (
-    <div className="btn-wrappper">
+    <div className={'btn-wrappper' + ' ' + className}>
       <button {...rest} className="btn-popup" onClick={onClick}>
         <div className={btnTextClasses}>{children}</div>
         <div aria-hidden="true" className={btnShadowClasses}></div>
       </button>
     </div>
   ) : (
-    <button {...rest} onClick={onClick} className={btnTextClasses}>
+    <button
+      {...rest}
+      onClick={onClick}
+      className={`${btnTextClasses} ${className}`}
+    >
       {children}
     </button>
   );
