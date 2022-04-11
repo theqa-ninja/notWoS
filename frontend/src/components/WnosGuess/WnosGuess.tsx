@@ -1,7 +1,7 @@
 import { LockClosedIcon } from '@heroicons/react/solid';
-import WosGuessBlock from 'components/WosGuess/WosGuessBlock';
+import WnosGuessBlock from 'components/WnosGuess/WnosGuessBlock';
 
-interface WosGuessProps {
+interface WnosGuessProps {
   word: string;
   player: string;
   locked: boolean;
@@ -9,16 +9,16 @@ interface WosGuessProps {
   length: number;
 }
 
-function WosGuess({ word, player, locked, hidden, length }: WosGuessProps) {
+function WnosGuess({ word, player, locked, hidden, length }: WnosGuessProps) {
   return (
-    <li className="wos-guess">
-      <div className="wos-guess-player">
-        {locked && <LockClosedIcon className="wos-guess--lock" />}
+    <li className="wnos-guess">
+      <div className="wnos-guess-player">
+        {locked && <LockClosedIcon className="wnos-guess--lock" />}
         <span className="text-white">{player}</span>
       </div>
-      <ul className="wos-guess-blocks">
+      <ul className="wnos-guess-blocks">
         {word.split('').map((w, i) => (
-          <WosGuessBlock
+          <WnosGuessBlock
             key={w + i}
             hidden={hidden}
             length={length}
@@ -30,4 +30,4 @@ function WosGuess({ word, player, locked, hidden, length }: WosGuessProps) {
   );
 }
 
-export default WosGuess;
+export default WnosGuess;

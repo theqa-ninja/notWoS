@@ -1,4 +1,4 @@
-.wos-board {
+.wnos-board {
   @apply
     flex
     flex-col
@@ -9,7 +9,7 @@
   ;
 }
 
-.wos-board--announcement {
+.wnos-board--announcement {
   @apply
     w-1/3
     border-4
@@ -29,7 +29,7 @@
   ;
 }
 
-.wos-board--text {
+.wnos-board--text {
   @apply
     animate-fade-in
     font-fredoka
@@ -44,7 +44,7 @@
 }
 
 
-.wos-board--anagram {
+.wnos-board--anagram {
   @apply
     w-fit
     bg-white

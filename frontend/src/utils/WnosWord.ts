@@ -1,4 +1,4 @@
-export interface IWosWord {
+export interface IWnosWord {
   letters: Letter[];
   word: string;
   showFakes: boolean;
@@ -7,7 +7,7 @@ export interface IWosWord {
   toggleFakes: () => void;
 }
 
-export default class WosWord implements IWosWord {
+export default class WnosWord implements IWnosWord {
   public letters: Letter[] = [];
   public showFakes = false;
 
@@ -20,6 +20,7 @@ export default class WosWord implements IWosWord {
     this.letters = scramble.map((w: string): Letter => {
       let hidden = false;
 
+      // TODO: what if there are multiple hiddens of the same letter?
       // TODO: might have to the same with fake letters
       // check if it's a hidden letter and not already marked as hidden
       // A word can have duplicate letters, only one should be marked hidden

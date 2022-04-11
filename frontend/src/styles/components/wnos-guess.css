@@ -1,4 +1,4 @@
-.wos-guesses {
+.wnos-guesses {
   @apply
     flex
     flex-col
@@ -11,7 +11,7 @@
     items-end;
 }
 
-.wos-guess {
+.wnos-guess {
   @apply
     flex
     gap-2
@@ -27,7 +27,7 @@
   ;
 }
 
-.wos-guess-player {
+.wnos-guess-player {
   @apply
     flex
     gap-2
@@ -35,7 +35,7 @@
   ;
 }
 
-.wos-guess--lock {
+.wnos-guess--lock {
   @apply
     h-6
     w-6
@@ -44,14 +44,14 @@
 }
 
 
-.wos-guess-blocks {
+.wnos-guess-blocks {
   @apply
     flex
     gap-1
   ;
 }
 
-.wos-guess-block {
+.wnos-guess-block {
   @apply
     text-xl
     text-center
@@ -64,53 +64,53 @@
     rounded;
 }
 
-.wos-guess-block--lavender {
+.wnos-guess-block--lavender {
   @apply bg-lavender;
 }
 
-.wos-guess-block--maroon {
+.wnos-guess-block--maroon {
   @apply bg-maroon;
 }
 
-.wos-guess-block--flamingo {
+.wnos-guess-block--flamingo {
   @apply bg-flamingo;
 }
 
-.wos-guess-block--rosewater {
+.wnos-guess-block--rosewater {
   @apply bg-rosewater;
 }
 
-.wos-guess-block--blue {
+.wnos-guess-block--blue {
   @apply bg-blue;
 }
 
-.wos-guess-block--mauve {
+.wnos-guess-block--mauve {
   @apply bg-mauve;
 }
 
-.wos-guess-block--pink {
+.wnos-guess-block--pink {
   @apply bg-pink;
 }
 
-.wos-guess-block--peach {
+.wnos-guess-block--peach {
   @apply bg-peach;
 }
 
-.wos-guess-block--yellow {
+.wnos-guess-block--yellow {
   @apply bg-yellow;
 }
 
-.wos-guess-block--green {
+.wnos-guess-block--green {
   @apply bg-green;
 }
 
-.wos-guess-block--teal {
+.wnos-guess-block--teal {
   @apply bg-teal;
 }
 
-.wos-guess-block--sky {
+.wnos-guess-block--sky {
   @apply bg-teal;
 }
-.wos-guess-block--red {
+.wnos-guess-block--red {
   @apply bg-red;
 }

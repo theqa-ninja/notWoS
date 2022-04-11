@@ -5,9 +5,9 @@
 @import "components/sidebar.css";
 @import "components/chat.css";
 @import "components/game.css";
-@import "components/wos-word.css";
-@import "components/wos-board.css";
-@import "components/wos-guess.css";
+@import "components/wnos-word.css";
+@import "components/wnos-board.css";
+@import "components/wnos-guess.css";
 @import "components/lockout-bar.css";
 @import "pages/Home.css";
 

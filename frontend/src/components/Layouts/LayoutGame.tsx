@@ -1,6 +1,6 @@
 import Sidebar from 'components/Sidebar/Sidebar';
-import WosBoard from 'components/WosBoard/WosBoard';
-import WosGuess from 'components/WosGuess/WosGuess';
+import WnosBoard from 'components/WnosBoard/WnosBoard';
+import WnosGuess from 'components/WnosGuess/WnosGuess';
 import LockoutBar from 'components/LockoutBar/LockoutBar';
 import { words } from 'utils/MockData';
 
@@ -15,14 +15,14 @@ const LayoutGame = () => {
   return (
     <>
       <main className="game">
-        <section className="game-wos">
-          <WosBoard annoucement="lunar_marya found a word" />
+        <section className="game-wnos">
+          <WnosBoard annoucement="lunar_marya found a word" />
 
           <LockoutBar />
 
-          <ul className="wos-guesses">
+          <ul className="wnos-guesses">
             {list.map((i: string) => (
-              <WosGuess
+              <WnosGuess
                 key={i}
                 word={i}
                 player={

@@ -5,16 +5,16 @@ import classnames from 'classnames';
  * TODO: figure out logic to render fakes as hidden until revealed
  */
 
-interface WosBlockProps {
+interface WnosBlockProps {
   letter: string;
   hidden?: boolean;
   fake?: boolean;
 }
 
-function WosBlock({ letter, hidden, fake }: WosBlockProps) {
-  const classes = classnames('wos-block', {
-    'wos-block--hidden': hidden,
-    'wos-block--fake': fake && !hidden
+function WnosBlock({ letter, hidden, fake }: WnosBlockProps) {
+  const classes = classnames('wnos-block', {
+    'wnos-block--hidden': hidden,
+    'wnos-block--fake': fake && !hidden
   });
   return (
     <span id={letter} className={classes}>
@@ -23,4 +23,4 @@ function WosBlock({ letter, hidden, fake }: WosBlockProps) {
   );
 }
 
-export default WosBlock;
+export default WnosBlock;

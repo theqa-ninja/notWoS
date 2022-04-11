@@ -1,4 +1,4 @@
-.wos-word {
+.wnos-word {
   @apply
     /* grid */
     gap-2
@@ -10,7 +10,7 @@
   ;
 }
 
-.wos-block {
+.wnos-block {
   @apply
     text-center
     uppercase
@@ -31,10 +31,10 @@
 
 }
 
-.wos-block--hidden {
+.wnos-block--hidden {
   @apply bg-yellow;
 }
 
-.wos-block--fake {
+.wnos-block--fake {
   @apply bg-red;
 }

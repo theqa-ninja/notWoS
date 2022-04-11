@@ -1,6 +1,6 @@
 import LayoutGame from 'components/Layouts/LayoutGame';
 
-const WOS = () => {
+const WNOS = () => {
   return (
     <>
       <LayoutGame />
@@ -8,4 +8,4 @@ const WOS = () => {
   );
 };
 
-export default WOS;
+export default WNOS;

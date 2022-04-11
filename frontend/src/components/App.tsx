@@ -5,7 +5,7 @@ import JoinRoom from 'pages/JoinRoom';
 
 const Home = lazy(() => import('pages/Home'));
 const NotFound = lazy(() => import('pages/404'));
-const WOS = lazy(() => import('pages/WOS'));
+const WNOS = lazy(() => import('pages/WNOS'));
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/wos" element={<WOS />} />
-          <Route path="/wos/join" element={<JoinRoom />}>
+          <Route path="/wnos" element={<WNOS />} />
+          <Route path="/wnos/join" element={<JoinRoom />}>
             <Route path=":id" element={<JoinRoom />} />
           </Route>
           <Route path="*" element={<NotFound />} />
