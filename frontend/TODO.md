@@ -1,5 +1,7 @@
 # To do list
 
+- [ ] create mock data to test game
+
 ## Libraries
 - [ ] check out framer for cool animations
 - [ ] figure out the benefits of using MobX with Reactjs
@@ -8,17 +10,17 @@
 Should be simple and basic. Don't need a landing page. Just buttons to 
 join/create a room
 
-- [ ] Create game room button
-- [ ] Join room with input
-- [ ] request to join a room
+- [x] Create game room button
+- [x] Join room with input
+- [x] request to join a room -> directs to a page
 - [ ] request to create a new game room
 
 ## UI
-- [ ] Button component
-  - [ ] Add color choices
-  - [ ] Add fun animations on hover
-  - [ ] Add fun animations on click
-- [ ] Modal component for pop-up game screens (Ex: GameOver screen)
+- [x] Button component
+  - [x] Add color choices
+  - [x] Add fun animations on hover
+  - [x] Add fun animations on click
+- [x] Modal component for pop-up game screens (Ex: GameOver screen)
 
 ## Game
 - [ ] implement auto scramble after `x` amount of seconds

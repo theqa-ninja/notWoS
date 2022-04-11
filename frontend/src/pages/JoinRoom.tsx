@@ -1,7 +1,6 @@
 import { FormEvent, ChangeEvent, useState } from 'react';
 import Button from 'components/Button';
 import { useParams } from 'react-router-dom';
-interface JoinRoomProps {}
 
 function JoinRoom() {
   const params = useParams();
@@ -19,7 +18,7 @@ function JoinRoom() {
       <div className="dialog">
         <h3 className="dialog-title">Join Room</h3>
         <form
-          className="flex flex-col gap-2 w-full items-center"
+          className="flex flex-col gap-2 items-center w-full"
           onSubmit={submitCode}
         >
           <label htmlFor="join-room">Enter your room code</label>

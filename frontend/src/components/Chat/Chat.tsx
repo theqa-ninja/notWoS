@@ -22,7 +22,9 @@ function Chat() {
 
   const submitMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let message: string = Math.floor(Math.random() * 100000).toString();
+    let message: string = Math.random()
+      .toString(24)
+      .substr(2, Math.random() * 10 + 2);
     if (guess !== '') {
       message = guess;
       setGuess('');

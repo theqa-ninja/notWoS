@@ -21,7 +21,7 @@ const Home: React.FC = () => {
                 join room
               </Button>
             </Link>
-            {/* TODO: should redirect to game board */}
+            {/* TODO: should create a new game and redirect to game */}
             <Button popup color="green" kind="outline" className="text-2xl">
               create new room
             </Button>
