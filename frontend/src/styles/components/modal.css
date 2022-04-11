@@ -1,0 +1,58 @@
+.modal-overlay {
+  @apply
+    font-fredoka
+    fixed
+    left-0
+    top-0
+    bg-black-0/[.8]
+    w-screen
+    h-screen
+    z-50;
+}
+
+.modal {
+  @apply
+    shadow-sm
+    p-4
+    rounded
+    bg-rosewater
+    fixed
+    h-auto
+    left-[50%]
+    text-background
+    top-[50%]
+    w-[90%]
+    lg:min-w-[350px]
+    lg:w-fit
+  ;
+  transform: translate(-50%, -50%);
+}
+
+
+.modal-main {
+  @apply
+    my-4;
+}
+
+.modal-footer {
+  @apply
+    justify-end
+    flex
+    gap-4;
+}
+
+.modal-header {
+  @apply
+    justify-between
+    flex
+    gap-4;
+}
+
+.btn-close {
+@apply
+  text-background
+  transition-transform
+  hover:rotate-[30deg]
+  h-6
+  w-6;
+}
