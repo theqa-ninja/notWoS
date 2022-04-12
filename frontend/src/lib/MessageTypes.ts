@@ -1,7 +1,11 @@
+import { ConfirmSubscribePayload } from 'lib/payloads/SubscribePayload';
+import LevelPayload from 'lib/payloads/LevelPayload';
+
 export enum MessageType {
   subscribe = 100,
   confirm_subscription = 110,
-  message = 200
+  message = 200,
+  new_level = 300
 }
 
 export function MessageTypeToString(t: MessageType | number): string {
@@ -10,6 +14,7 @@ export function MessageTypeToString(t: MessageType | number): string {
 
 export type MessageRequest = {
   [MessageType.subscribe]: SocketRequest;
+  [MessageType.new_level]: LevelPayload;
 };
 
 export type MessageResponse = {
@@ -25,15 +30,19 @@ declare type SocketRequest = {
 export type SocketResponse<T> = {
   type?: string;
   identifier: Identifier;
-  message?: T;
+  message?: {
+    type: string;
+    success: boolean;
+    data: T;
+  };
 };
 
 export type Identifier = {
-  channel: UUID;
-  id: string;
+  channel: string;
+  id: UUID;
 };
 
-// TODO: redundant?
+// TODO: redundant? might delete
 export type SocketRequestPayload<T> = {
   command: string;
   data?: T;
