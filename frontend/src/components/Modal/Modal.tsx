@@ -1,7 +1,6 @@
-import { EventHandler, ReactNode, useState, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import { XIcon } from '@heroicons/react/solid';
 import useClickOutside from 'hooks/useClickOutside';
-import Button from 'components/Button';
 import classnames from 'classnames';
 
 interface ModalProps
@@ -13,10 +12,9 @@ interface ModalProps
   open?: boolean;
   title?: string;
   onClose: () => void;
-  content?: ReactNode; // Main modal content
-  footer?: ReactNode;
   hideCloseButton?: boolean;
   color?: Color | 'white';
+  enableClickOutside?: boolean;
 }
 
 /**
@@ -24,20 +22,17 @@ interface ModalProps
  *
  * @param title - heading of modal
  * @param onClose - close modal event
- * @param content - Main content slot
  * @param children- Main content slot
- * @param footer - Footer content slot
  * @param hideCloseButton - hide the close button
  * @returns
  */
 
 function Modal({
+  enableClickOutside = false,
   onClose,
   children,
   open = false,
   title,
-  content,
-  footer,
   hideCloseButton = false,
   color = 'white',
   className,
@@ -52,7 +47,7 @@ function Modal({
   });
 
   const clickOutside = () => {
-    if (clickedOutside) {
+    if (enableClickOutside && clickedOutside) {
       onClose();
     }
   };
@@ -69,26 +64,18 @@ function Modal({
         ref={modalRef}
         {...rest}
       >
-        <header className="modal-header">
-          <span className="w-full text-3xl text-center">{title}</span>
-          {!hideCloseButton && (
-            <button onClick={onClose}>
-              <XIcon className="btn-close" />
-            </button>
-          )}
-        </header>
+        {title != '' ? (
+          <header className="modal-header">
+            <span className="w-full text-3xl text-center">{title}</span>
+            {!hideCloseButton && (
+              <button onClick={onClose}>
+                <XIcon className="btn-close" />
+              </button>
+            )}
+          </header>
+        ) : null}
 
-        <main className="modal-main">{children ?? content}</main>
-
-        <footer className="modal-footer">
-          {footer ? (
-            footer
-          ) : (
-            <Button popup onClick={onClose} color="red">
-              Close
-            </Button>
-          )}
-        </footer>
+        {children}
       </div>
     </div>
   );
