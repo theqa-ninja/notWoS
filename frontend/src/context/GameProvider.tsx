@@ -1,4 +1,5 @@
 import { useState, createContext, useContext, ReactNode } from 'react';
+import ScreenState from 'lib/ScreenState';
 
 const GameContext = createContext<IGame>({
   addLevel: () => null,
