@@ -7,7 +7,11 @@ interface ModalContentProps
   children?: ReactNode;
 }
 
-function ModalContent({ children, className, ...rest }: ModalContentProps) {
+function ModalContent({
+  children,
+  className = '',
+  ...rest
+}: ModalContentProps) {
   return (
     <main className={`modal-main ${className}`} {...rest}>
       {children}

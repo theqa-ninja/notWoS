@@ -12,7 +12,7 @@ interface ModalFooterProps
 function ModalFooter({
   onClose,
   children,
-  className,
+  className = '',
   ...rest
 }: ModalFooterProps) {
   return (
