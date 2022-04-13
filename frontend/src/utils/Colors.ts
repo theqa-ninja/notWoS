@@ -1,4 +1,5 @@
 const Colors: { [key: string]: Color } = {
+  white: 'white',
   red: 'red',
   maroon: 'maroon',
   rosewater: 'rosewater',
