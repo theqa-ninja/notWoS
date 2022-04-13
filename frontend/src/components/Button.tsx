@@ -12,6 +12,7 @@ interface ButtonProps
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
+  iconOnly?: boolean;
 }
 
 function Button({
@@ -19,6 +20,7 @@ function Button({
   popup = false,
   color = 'teal',
   kind = 'solid',
+  iconOnly = false,
   className,
   onClick,
   children,
@@ -30,6 +32,7 @@ function Button({
       `${kind === 'outline' && `border-${color}`}`
     ].join(' '),
     {
+      'btn-icon': iconOnly,
       'bg-maroon': color === Colors.maroon,
       'bg-red': color === Colors.red,
       'bg-rosewater': color === Colors.rosewater,
@@ -43,6 +46,7 @@ function Button({
       'bg-blue': color === Colors.blue,
       'bg-sky': color === Colors.sky,
       'bg-lavender': color === Colors.lavender,
+      'bg-white': color === Colors.white,
       '!text-maroon': kind === 'outline' && color === Colors.maroon,
       '!text-red': kind === 'outline' && color === Colors.red,
       '!text-rosewater': kind === 'outline' && color === Colors.rosewater,
@@ -56,6 +60,7 @@ function Button({
       '!text-blue': kind === 'outline' && color === Colors.blue,
       '!text-sky': kind === 'outline' && color === Colors.sky,
       '!text-lavender': kind === 'outline' && color === Colors.lavender,
+      '!text-white': kind === 'outline' && color === Colors.white,
       'text-lg': size === 'sm',
       'text-xl': size === 'md',
       'text-2xl': size === 'lg'
@@ -75,7 +80,8 @@ function Button({
     'border-teal': color === Colors.teal,
     'border-blue': color === Colors.blue,
     'border-sky': color === Colors.sky,
-    'border-lavender': color === Colors.lavender
+    'border-lavender': color === Colors.lavender,
+    'border-white': color === Colors.white
   });
 
   return popup ? (

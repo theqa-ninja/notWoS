@@ -50,6 +50,10 @@
   ;
 }
 
+.btn-icon {
+  @apply min-w-fit p-1;
+}
+
 
 .btn-shadow {
   @apply
