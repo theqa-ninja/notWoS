@@ -4,12 +4,12 @@
  */
 
 import type { FC, ReactNode } from 'react';
-import Navbar from 'components/Navbar/Navbar';
 
 const LayoutMain: FC = ({ children }: { children?: ReactNode }) => (
   <>
-    <Navbar />
-    {children}
+    <main className="flex flex-col grow justify-center items-center p-4">
+      {children}
+    </main>
   </>
 );
 
