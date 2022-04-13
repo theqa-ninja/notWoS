@@ -1,9 +1,12 @@
-import LayoutGame from 'components/Layouts/LayoutGame';
+import Game from 'components/Game/Game';
+import { GameProvider } from 'context/GameProvider';
 
 const WNOS = () => {
   return (
     <>
-      <LayoutGame />
+      <GameProvider>
+        <Game />
+      </GameProvider>
     </>
   );
 };
