@@ -11,7 +11,7 @@ interface ModalProps
   children?: ReactNode;
   open?: boolean;
   title?: string;
-  onClose: () => void;
+  onClose?: () => void;
   hideCloseButton?: boolean;
   color?: Color | 'white';
   enableClickOutside?: boolean;
@@ -48,7 +48,9 @@ function Modal({
 
   const clickOutside = () => {
     if (enableClickOutside && clickedOutside) {
-      onClose();
+      if (onClose) {
+        onClose();
+      }
     }
   };
 
@@ -57,8 +59,8 @@ function Modal({
       <div
         role="presentation"
         className={
-          'modal scale-in' +
-          `bg-${color} ${open ? 'block' : 'hidden'}` +
+          'modal scale-in ' +
+          `bg-${color} ${open ? 'block' : 'hidden'} ` +
           className
         }
         ref={modalRef}
