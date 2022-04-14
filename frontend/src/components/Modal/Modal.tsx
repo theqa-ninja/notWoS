@@ -2,6 +2,7 @@ import { ReactNode, useRef } from 'react';
 import { XIcon } from '@heroicons/react/solid';
 import useClickOutside from 'hooks/useClickOutside';
 import classnames from 'classnames';
+import { motion } from 'framer-motion';
 
 interface ModalProps
   extends React.DetailedHTMLProps<
@@ -55,7 +56,14 @@ function Modal({
   };
 
   return (
-    <div className={modalClasses} onClick={clickOutside}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.1 }}
+      className={modalClasses}
+      onClick={clickOutside}
+    >
       <div
         role="presentation"
         className={
@@ -79,7 +87,7 @@ function Modal({
 
         {children}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
