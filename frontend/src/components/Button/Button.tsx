@@ -1,19 +1,6 @@
 import classnames from 'classnames';
 import Colors from 'utils/Colors';
-
-interface ButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
-  popup?: boolean;
-  kind?: 'outline' | 'solid';
-  color?: Color;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  children?: React.ReactNode;
-  size?: 'sm' | 'md' | 'lg';
-  iconOnly?: boolean;
-}
+import { ButtonProps } from 'types/Button';
 
 function Button({
   size = 'sm',
