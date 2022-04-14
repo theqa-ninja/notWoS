@@ -51,6 +51,10 @@
 }
 
 .btn-icon {
+  @apply min-w-fit;
+}
+
+.btn-popup.btn-icon {
   @apply min-w-fit p-1;
 }
 
