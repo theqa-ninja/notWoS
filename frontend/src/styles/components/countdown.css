@@ -1,0 +1,42 @@
+.countdown {
+  @apply
+    border-4
+    flex
+    justify-center
+    items-center
+    bg-black-0
+    rounded-3xl
+    font-fredoka
+    text-8xl
+    p-4
+    w-44
+    h-44
+    transition-all
+  ;
+}
+
+.countdown-container {
+  @apply
+    absolute
+    top-[50%]
+    left-[50%]
+    -translate-x-1/2
+    -translate-y-1/2
+    rotate-45
+  ;
+}
+
+.countdown-border {
+  @apply
+    border-2
+    border-yellow
+    border-dashed
+    h-fit
+    w-fit
+    rounded-3xl
+  ;
+}
+
+.countdown-text {
+  @apply -rotate-45;
+}
