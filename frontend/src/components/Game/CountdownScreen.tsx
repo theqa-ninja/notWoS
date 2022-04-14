@@ -63,7 +63,7 @@ function CountdownScreen() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.3 }}
       >
         <motion.div
           className="countdown-container"
@@ -75,7 +75,7 @@ function CountdownScreen() {
             rotate: '45deg'
           }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.2, delay: 0.4 }}
+          transition={{ duration: 0.2, delay: 0.35 }}
           exit={{ opacity: 0, scale: 0 }}
         >
           <div className={`countdown border-${borderColor}`}>
