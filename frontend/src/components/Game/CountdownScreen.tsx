@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useGame } from 'context/GameProvider';
 import Color from 'utils/Colors';
 
 function CountdownScreen() {
   const [count, setCount] = useState<number>(3);
   const [borderColor, setBorderColor] = useState<Color>('red');
+  const { advanceScreen } = useGame();
   useEffect(() => {
-    if (count <= 0) {
+    if (count < 0) {
+      advanceScreen();
       return;
     }
 
