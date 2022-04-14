@@ -1,4 +1,4 @@
-import Button from 'components/Button';
+import Button from 'components/Button/Button';
 import { ReactNode } from 'react';
 interface ModalFooterProps
   extends React.DetailedHTMLProps<

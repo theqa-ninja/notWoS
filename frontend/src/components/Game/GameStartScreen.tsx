@@ -1,4 +1,4 @@
-import Button from 'components/Button';
+import Button from 'components/Button/Button';
 import Modal from 'components/Modal/Modal';
 import ModalContent from 'components/Modal/ModalContent';
 import ModalFooter from 'components/Modal/ModalFooter';

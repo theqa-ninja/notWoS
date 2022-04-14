@@ -1,6 +1,6 @@
 import { CogIcon } from '@heroicons/react/solid';
 import { FormEventHandler, ChangeEventHandler } from 'react';
-import Button from 'components/Button';
+import Button from 'components/Button/Button';
 
 function ChatInput(props: {
   onSubmit: FormEventHandler<HTMLFormElement> | undefined;

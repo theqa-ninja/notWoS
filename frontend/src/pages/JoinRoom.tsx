@@ -1,5 +1,5 @@
 import { FormEvent, ChangeEvent, useState } from 'react';
-import Button from 'components/Button';
+import Button from 'components/Button/Button';
 import { useParams } from 'react-router-dom';
 
 function JoinRoom() {

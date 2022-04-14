@@ -1,6 +1,6 @@
 import React from 'react';
 import LayoutMain from 'components/Layouts/LayoutMain';
-import Button from 'components/Button';
+import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
