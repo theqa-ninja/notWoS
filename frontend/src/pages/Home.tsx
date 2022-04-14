@@ -21,9 +21,11 @@ const Home: React.FC = () => {
             </Button>
           </Link>
           {/* TODO: should create a new game and redirect to game */}
-          <Button popup color="green" kind="outline" className="text-2xl">
-            create new room
-          </Button>
+          <Link to="/wnos">
+            <Button popup color="green" kind="outline" className="text-2xl">
+              create new room
+            </Button>
+          </Link>
         </footer>
       </div>
     </LayoutMain>
