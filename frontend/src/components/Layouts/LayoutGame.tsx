@@ -3,6 +3,9 @@ import WnosBoard from 'components/WnosBoard/WnosBoard';
 import WnosGuess from 'components/WnosGuess/WnosGuess';
 import LockoutBar from 'components/LockoutBar/LockoutBar';
 import { words } from 'utils/MockData';
+import { useGame } from 'context/GameProvider';
+import ScreenState from 'lib/ScreenState';
+import CountdownScreen from 'components/Game/CountdownScreen';
 
 const LayoutGame = () => {
   let list = words.sort();
@@ -12,10 +15,13 @@ const LayoutGame = () => {
     return 0;
   });
 
+  const { screenState } = useGame();
+
   return (
     <>
       <main className="game">
         <section className="game-wnos">
+          {screenState === ScreenState.COUNT_DOWN && <CountdownScreen />}
           <WnosBoard annoucement="lunar_marya found a word" />
 
           <LockoutBar />
