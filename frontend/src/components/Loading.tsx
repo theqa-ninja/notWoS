@@ -32,7 +32,7 @@ function Loading({ className }: { className?: string }) {
   return (
     <>
       <main className={`modal-overlay ${className && className}`}>
-        <section className="flex justify-center items-center rounded-3xl border-4 border-yellow modal">
+        <section className="flex justify-center items-center !rounded-full border-4 border-yellow modal">
           <AnimatePresence>
             <motion.ul
               className="flex gap-4 text-white"
