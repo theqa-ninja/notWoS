@@ -3,7 +3,7 @@
 - [ ] create mock data to test game
 
 ## Libraries
-- [ ] check out framer for cool animations
+- [x] check out framer for cool animations
 - [ ] figure out the benefits of using MobX with Reactjs
 
 ## Homepage
@@ -21,10 +21,16 @@ join/create a room
   - [x] Add fun animations on hover
   - [x] Add fun animations on click
 - [x] Modal component for pop-up game screens (Ex: GameOver screen)
+- [ ] Add a username input dialog
 
 ## Game
-- [ ] implement auto scramble after `x` amount of seconds
-- [ ] scrambling should increase (become faster) as the level timer goes down.
+- [ ] create User state
+  - [ ] user is locked
+  - [ ] username
+  - [ ] user color
+- [ ] revise GameProvider
+  - [ ] use MobX
+  - [ ] add eventdispatchers for state that chagnes on timer ends
 
 ### Game State
 
@@ -32,13 +38,26 @@ join/create a room
 Should have something that dispatches the next screen state.
 
 #### Start Screen
-- [ ] Add Start game button
-- [ ] should shift to the countdown screen
+- [x] Add Start game button
+- [x] should shift to the countdown screen
 - [ ] figure out cool enter and exit animation
-- [ ] should display the `Game room code`
+- [x] should display the `Game room code`
+- [ ] should only show "start game" button if not the owner and game hasn't started yet
+- [ ] "start game" btn should send to backend that the game is starting to sync all clients
 
 #### Countdown
-- [ ] figure out what kind of animations to use
+- [x] figure out what kind of animations to use
+- [ ] should be skipped if user joins an ongoing game
+
+#### WNOS Screen
+- [ ] on new chat message, send 'on_guess' request to backend
+- [ ] if new guess correct, show in guess-board
+- [ ] State of game
+  - [ ] timer, guess-board and wnos-board, and chat should share state
+  - [ ] after a correct guess, user should be locked until next timer-lock (needs user state)
+  - [ ] after a certain amount of time, all hiddens and fakes should be shown AND all hidden guesses are shown
+  - [ ] implement auto scramble after `x` amount of seconds
+  - [ ] scrambling should increase (become faster) as the level timer goes down.
 
 #### End Level 
 
