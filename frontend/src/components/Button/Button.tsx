@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import Colors from 'utils/Colors';
 import { ButtonProps } from 'types/Button';
+import { motion } from 'framer-motion';
 
 function Button({
   size = 'sm',
@@ -79,13 +80,20 @@ function Button({
       </button>
     </div>
   ) : (
-    <button
+    <motion.button
+      whileTap={{
+        scale: 0.8
+      }}
+      transition={{
+        duration: 0.1,
+        type: 'easeIn'
+      }}
       {...rest}
       onClick={onClick}
       className={`${btnTextClasses} ${className}`}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }
 
