@@ -16,12 +16,14 @@ export default class WnosWord implements IWnosWord {
     let markedHidden: {
       [key: string]: boolean;
     } = {};
+    let markedFake: {
+      [key: string]: boolean;
+    } = {};
     const scramble: string[] = lvl.letters.concat(lvl.fake_letters);
     this.letters = scramble.map((w: string): Letter => {
       let hidden = false;
+      let fake = false;
 
-      // TODO: what if there are multiple hiddens of the same letter?
-      // TODO: might have to the same with fake letters
       // check if it's a hidden letter and not already marked as hidden
       // A word can have duplicate letters, only one should be marked hidden
       if (lvl.hidden_letters.includes(w) && !(w in markedHidden)) {
@@ -29,10 +31,16 @@ export default class WnosWord implements IWnosWord {
         hidden = true;
       }
 
+      // do the same with fake letters
+      if (lvl.fake_letters.includes(w) && !(w in markedFake)) {
+        markedFake = Object.assign({ [w]: true }, markedFake);
+        fake = true;
+      }
+
       return {
         char: w,
         hidden: hidden,
-        fake: lvl.fake_letters.includes(w)
+        fake: fake
       };
     });
 
