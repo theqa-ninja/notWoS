@@ -1,0 +1,25 @@
+.loading {
+  @apply
+    flex
+    justify-center
+    items-center
+    rounded-full
+    border-4
+    border-yellow
+    shadow-sm
+    fixed
+    h-auto
+    left-[50%]
+    text-white
+    top-[50%]
+    w-[90%]
+    lg:min-w-[350px]
+    lg:w-fit
+    gap-4
+    p-4
+  ;
+}
+
+.loading-char {
+  @apply text-6xl uppercase;
+}

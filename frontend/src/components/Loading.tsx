@@ -3,7 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 function Loading({ className }: { className?: string }) {
   const container = {
     init: {
-      scale: 1
+      scale: 1,
+      x: '-50%',
+      y: '-50%'
     },
     wnos: {
       transition: {
@@ -32,29 +34,27 @@ function Loading({ className }: { className?: string }) {
   return (
     <>
       <main className={`modal-overlay ${className && className}`}>
-        <section className="flex justify-center items-center !rounded-full border-4 border-yellow modal">
-          <AnimatePresence>
-            <motion.ul
-              className="flex gap-4 text-white"
-              variants={container}
-              initial="init"
-              animate="wnos"
-            >
-              <motion.li variants={item} className="text-6xl uppercase">
-                w
-              </motion.li>
-              <motion.li variants={item} className="text-6xl uppercase">
-                n
-              </motion.li>
-              <motion.li variants={item} className="text-6xl uppercase">
-                o
-              </motion.li>
-              <motion.li variants={item} className="text-6xl uppercase">
-                s
-              </motion.li>
-            </motion.ul>
-          </AnimatePresence>
-        </section>
+        <AnimatePresence>
+          <motion.ul
+            className="flex gap-4 text-white loading"
+            variants={container}
+            initial="init"
+            animate="wnos"
+          >
+            <motion.li variants={item} className="loading-char">
+              w
+            </motion.li>
+            <motion.li variants={item} className="loading-char">
+              n
+            </motion.li>
+            <motion.li variants={item} className="loading-char">
+              o
+            </motion.li>
+            <motion.li variants={item} className="loading-char">
+              s
+            </motion.li>
+          </motion.ul>
+        </AnimatePresence>
       </main>
     </>
   );
