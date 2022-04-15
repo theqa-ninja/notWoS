@@ -11,3 +11,7 @@ input[type="text"] {
     border-solid
     border-accent;
 }
+
+.input-error {
+    @apply text-red;
+  }
