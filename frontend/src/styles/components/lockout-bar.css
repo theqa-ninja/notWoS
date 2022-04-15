@@ -50,7 +50,7 @@
     border-solid
     border-yellow
   ;
-  z-index: 100;
+  z-index: 1;
 }
 
 .timer-lock {

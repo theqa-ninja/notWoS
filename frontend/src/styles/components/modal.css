@@ -7,7 +7,7 @@
     bg-black-0/[.8]
     w-screen
     h-screen
-    z-50;
+    z-[100];
 }
 
 .modal {
