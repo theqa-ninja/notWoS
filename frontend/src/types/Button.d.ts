@@ -1,12 +1,7 @@
 import { HTMLMotionProps } from 'framer-motion';
 import { DOMMotionComponents } from 'framer-motion/types/render/dom/types';
 
-export interface ButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement,
-    HTMLMotionProps
-  > {
+export interface ButtonProps extends HTMLMotionProps<'button'> {
   popup?: boolean;
   kind?: 'outline' | 'solid';
   color?: Color;

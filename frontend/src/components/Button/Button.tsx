@@ -74,10 +74,10 @@ function Button({
 
   return popup ? (
     <div className={'btn-wrappper' + ' ' + className}>
-      <button {...rest} className="btn-popup" onClick={onClick}>
+      <motion.button {...rest} className="btn-popup" onClick={onClick}>
         <div className={btnTextClasses}>{children}</div>
         <div aria-hidden="true" className={btnShadowClasses}></div>
-      </button>
+      </motion.button>
     </div>
   ) : (
     <motion.button
