@@ -2,6 +2,7 @@ import React from 'react';
 import LayoutMain from 'components/Layouts/LayoutMain';
 import Button from 'components/Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
+import 'styles/pages/Home.css';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -17,12 +18,10 @@ const Home: React.FC = () => {
   return (
     <LayoutMain>
       <div className="dialog">
-        <span className="w-full h-full font-fredoka text-4xl leading-normal text-center underline underline-offset-8 uppercase">
+        <span className="title">
           Words <strong>NOT</strong> on Stream
         </span>
-        <span className="font-fredoka text-lg uppercase">
-          choose an option:
-        </span>
+        <span className="subtitle">choose an option:</span>
 
         <footer className="flex gap-4">
           <Link to="/wnos/join">

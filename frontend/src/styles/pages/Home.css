@@ -1,0 +1,17 @@
+.title {
+  @apply
+    w-full
+    h-full
+    font-fredoka
+    text-4xl
+    leading-normal
+    text-center
+    underline
+    underline-offset-8
+    uppercase
+  ;
+}
+
+.subtitle {
+  @apply font-fredoka text-lg uppercase;
+}
