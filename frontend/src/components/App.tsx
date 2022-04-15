@@ -13,7 +13,8 @@ function App() {
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/wnos" element={<WNOS />} />
+          <Route path="/loading" element={<Loading />} />
+          <Route path="/wnos/:code" element={<WNOS />}></Route>
           <Route path="/wnos/join" element={<JoinRoom />}>
             <Route path=":id" element={<JoinRoom />} />
           </Route>
