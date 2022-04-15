@@ -1,8 +1,9 @@
 import { FormEvent, ChangeEvent, useState } from 'react';
 import Button from 'components/Button/Button';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function JoinRoom() {
+  const navigate = useNavigate();
   const params = useParams();
   const [roomCode, setRoomCode] = useState<string>(params.id ?? '');
   const setCode = (event: ChangeEvent<HTMLInputElement>) => {
@@ -11,7 +12,7 @@ function JoinRoom() {
 
   const submitCode = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(`submit ${roomCode}`);
+    navigate(`/wnos/${roomCode}`);
   };
   return (
     <main className="flex flex-col grow justify-center items-center">
