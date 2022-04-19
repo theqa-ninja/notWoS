@@ -45,6 +45,35 @@ Make a new level!
 }
 ```
 
+Make a new game!
+```
+{
+    "command": "message",
+    "data": "{\"action\" : \"new_game\"},
+    "identifier": "{\"channel\":\"GameroomChannel\", \"id\":\"29e5435b-734f-43d2-bfa6-fb0e5c791de7\"}"
+}
+```
+sample return
+```
+{
+    "identifier": "{\"channel\":\"GameroomChannel\", \"id\":\"29e5435b-734f-43d2-bfa6-fb0e5c791de7\"}",
+    "message": {
+        "type": "new_game",
+        "success": true,
+        "data": {
+            "id": "90f7c2a5-4a35-4590-bfd0-aa5a64b4ce7e",
+            "name": "Room 1",
+            "room_code": "poke",
+            "current_level": 0,
+            "tag_id": null,
+            "is_active": true,
+            "creator_id": "771a5a33-687f-4799-97a1-fd944c219b3a",
+            "created_at": "2022-04-19T04:20:51.310Z",
+            "updated_at": "2022-04-19T04:20:51.310Z"
+        }
+    }
+}```
+
 ## Commands ran while creating stuff
 
 ```
