@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 function Loading({ className }: { className?: string }) {
   const container = {
     init: {
-      scale: 1,
+      scale: 0,
       x: '-50%',
       y: '-50%'
     },
     wnos: {
+      scale: 1,
       transition: {
         staggerChildren: 0.3,
         delayChildren: 0.2
