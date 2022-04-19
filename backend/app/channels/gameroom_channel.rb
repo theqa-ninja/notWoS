@@ -18,9 +18,20 @@ class GameroomChannel < ApplicationCable::Channel
     # TODO: remove this temp hack
     data['guesser_id'] = @game_room.creator_id
     data['level_id'] = @level.id
-    temp = Level.new.next_level(data)
-    @level = temp if temp.instance_of?(Level)
-    GameroomChannel.broadcast_to(@game_room, temp)
+    new_level = Level.new.next_level(data)
+    @level = new_level if new_level[:success]
+    GameroomChannel.broadcast_to(@game_room, new_level)
+  end
+
+  def new_game(data)
+    data['guesser_id'] = @guesser.id
+    data['gameroom_id'] = @game_room.id
+    # TODO: remove this temp hack
+    data['guesser_id'] = @game_room.creator_id
+    new_game = Gameroom.new.new_game(data)
+    GameroomChannel.broadcast_to(@game_room, new_game)
+    @game_room = new_game if new_game[:success]
+    stream_for @game_room
   end
 
   def new_guess(data)
