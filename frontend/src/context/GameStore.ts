@@ -1,5 +1,9 @@
 import { autorun, action, makeObservable, observable } from 'mobx';
 import ScreenState from 'lib/ScreenState';
+import GameOverScreen from 'components/Game/GameOverScreen';
+import GameStartScreen from 'components/Game/GameStartScreen';
+import ScoreboardScreen from 'components/Game/ScoreboardScreen';
+import { FunctionComponent } from 'react';
 
 export interface Game {
   room: GameRoom;
@@ -15,7 +19,8 @@ class GameStore implements Game {
     game_room: null,
     room_code: null,
     level: null,
-    theme_id: null
+    theme_id: null,
+    owner: null
   } as GameRoom;
 
   public levels: Level[] = [];
@@ -33,7 +38,8 @@ class GameStore implements Game {
       advanceScreen: action,
       nextLevel: action,
       reset: action,
-      gameOver: action
+      gameOver: action,
+      getScreen: action
     });
 
     autorun(this.log.bind(this));
@@ -106,6 +112,25 @@ class GameStore implements Game {
   public gameOver() {
     this.isGameOver = true;
     this.advanceScreen(this.isGameOver);
+  }
+
+  public getScreen(): FunctionComponent | null {
+    switch (this.screenState) {
+      case ScreenState.IDLE:
+        return GameStartScreen;
+      case ScreenState.COUNT_DOWN:
+        return null;
+      case ScreenState.ONGOING_GAME:
+        return null;
+      case ScreenState.SCOREBOARD:
+        return ScoreboardScreen;
+      case ScreenState.RANKING:
+        return null;
+      case ScreenState.GAME_OVER:
+        return GameOverScreen;
+      default:
+        return null;
+    }
   }
 
   private log() {

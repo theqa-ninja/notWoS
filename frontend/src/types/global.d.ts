@@ -17,6 +17,7 @@ declare type GameRoom = {
   room_code: string | null;
   level: number | null;
   theme_id: UUID | null;
+  owner: UUID | null;
 };
 
 declare type Level = {
