@@ -4,7 +4,7 @@ import { useGame } from 'context/GameProvider';
 import { useParams } from 'react-router-dom';
 
 const GameStartScreen = () => {
-  const { advanceScreen } = useGame();
+  const game = useGame();
   const params = useParams();
   // TODO: if owner, show start game, else show waiting screen
   return (
@@ -27,7 +27,7 @@ const GameStartScreen = () => {
             kind="outline"
             color="green"
             size="lg"
-            onClick={() => advanceScreen()}
+            onClick={() => game.advanceScreen()}
           >
             Start game
           </Button>

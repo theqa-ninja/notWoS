@@ -6,13 +6,14 @@ import { useEffect, useState, ReactNode } from 'react';
 import GameOverScreen from './GameOverScreen';
 import GameStartScreen from './GameStartScreen';
 import ScoreboardScreen from './ScoreboardScreen';
+import { observer } from 'mobx-react';
 
 /**
  * handles game state and all of it screens
  */
 const Game = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { screenState } = useGame();
+  const game = useGame();
   const getScreen = (state: ScreenState): ReactNode => {
     switch (state) {
       case ScreenState.IDLE:
@@ -42,11 +43,11 @@ const Game = () => {
 
   return (
     <>
-      {getScreen(screenState)}
-      {screenState === ScreenState.IDLE ? null : <LayoutGame />}
+      {getScreen(game.screenState)}
+      {game.screenState === ScreenState.IDLE ? null : <LayoutGame />}
       {isLoading ? <Loading className="!bg-black-0" /> : null}
     </>
   );
 };
 
-export default Game;
+export default observer(Game);

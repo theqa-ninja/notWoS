@@ -6,10 +6,10 @@ import Color from 'utils/Colors';
 function CountdownScreen() {
   const [count, setCount] = useState<number>(3);
   const [borderColor, setBorderColor] = useState<Color>('red');
-  const { advanceScreen } = useGame();
+  const game = useGame();
   useEffect(() => {
     if (count < 0) {
-      advanceScreen();
+      game.advanceScreen();
       return;
     }
 
