@@ -12,11 +12,11 @@ declare type UUID = string;
  * WoS Models
  */
 declare type GameRoom = {
-  id: UUID;
-  game_room: string;
-  room_code: string;
-  level: number;
-  theme_id: UUID;
+  id: UUID | null;
+  game_room: string | null;
+  room_code: string | null;
+  level: number | null;
+  theme_id: UUID | null;
 };
 
 declare type Level = {
@@ -29,6 +29,8 @@ declare type Level = {
   min_length: number;
   max_length: number;
   dictionary: UUID;
+  gameOver: boolean;
+  completed: boolean;
 };
 
 declare interface IGame {
@@ -64,6 +66,9 @@ declare enum GameState {
   ENDING_GAME
 }
 
+/**
+ * @deprecated
+ */
 declare type LevelState = {
   gameOver: boolean;
   completed: boolean;
