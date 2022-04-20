@@ -62,3 +62,11 @@ Should have something that dispatches the next screen state.
 #### End Level 
 
 #### Game Over
+
+## User State
+- [x] create store for user data
+- User
+  - username
+  - color
+  - id
+  - correct guesses?
