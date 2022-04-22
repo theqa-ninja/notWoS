@@ -4,12 +4,18 @@
  */
 
 import type { FC, ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 const LayoutMain: FC = ({ children }: { children?: ReactNode }) => (
   <>
-    <main className="flex flex-col grow justify-center items-center p-4">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="flex flex-col grow justify-center items-center p-4"
+    >
       {children}
-    </main>
+    </motion.main>
   </>
 );
 
