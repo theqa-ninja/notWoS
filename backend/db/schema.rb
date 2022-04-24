@@ -82,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_21_051904) do
   create_table "word_lists", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "word"
     t.integer "length"
+    t.string "letters", default: [], array: true
     t.string "filename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

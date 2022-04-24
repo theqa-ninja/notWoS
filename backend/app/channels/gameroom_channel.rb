@@ -17,7 +17,6 @@ class GameroomChannel < ApplicationCable::Channel
     data['gameroom_id'] = @game_room.id
     # TODO: remove this temp hack
     data['guesser_id'] = @game_room.creator_id
-    data['level_id'] = @level.id
     new_level = Level.new.next_level(data)
     @level = new_level if new_level[:success]
     GameroomChannel.broadcast_to(@game_room, new_level)
