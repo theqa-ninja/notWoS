@@ -9,7 +9,7 @@ function CountdownScreen() {
   const game = useGame();
   useEffect(() => {
     if (count < 0) {
-      game.advanceScreen();
+      game.startGame();
       return;
     }
 

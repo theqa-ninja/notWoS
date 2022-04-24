@@ -16,6 +16,10 @@ const Game = () => {
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
+
+    // TODO: Load Game
+    game.loadGame();
+
     return () => {
       clearTimeout(loadingTimer);
     };
