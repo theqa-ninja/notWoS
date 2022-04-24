@@ -5,6 +5,9 @@ import GameStartScreen from 'components/Game/GameStartScreen';
 import ScoreboardScreen from 'components/Game/ScoreboardScreen';
 import { FunctionComponent } from 'react';
 
+// TODO: remove this
+import { MockGame, MockLevel } from 'utils/MockData';
+
 export interface Game {
   room: GameRoom;
   levels: Level[];
@@ -39,7 +42,8 @@ class GameStore implements Game {
       nextLevel: action,
       reset: action,
       gameOver: action,
-      getScreen: action
+      getScreen: action,
+      startGame: action
     });
 
     autorun(this.log.bind(this));
@@ -131,6 +135,19 @@ class GameStore implements Game {
       default:
         return null;
     }
+  }
+
+  public loadGame() {
+    // TODO: load room
+    this.room = MockGame;
+
+    // TODO: load lvl
+    this.currentLevel = MockLevel;
+  }
+
+  public startGame() {
+    console.log('start game');
+    this.screenState = ScreenState.ONGOING_GAME;
   }
 
   private log() {
