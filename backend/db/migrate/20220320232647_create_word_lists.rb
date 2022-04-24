@@ -3,6 +3,7 @@ class CreateWordLists < ActiveRecord::Migration[7.0]
     create_table :word_lists, id: :uuid do |t|
       t.string :word
       t.integer :length
+      t.string :letters, array: true, default: []
       # t.uuid :tag_id, default: nil
       t.string :filename
 
