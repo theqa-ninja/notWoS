@@ -7,6 +7,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
 Dir.glob('public/word*') do |filename|
   # theme = Theme.find_or_create_by!(filename.split('/')[-1][0..-5])
   file_data = File.read(filename).split()
@@ -16,6 +18,7 @@ Dir.glob('public/word*') do |filename|
     temp_word = WordList.create!(
       word: line,
       length: line.length,
+      letters: line.chars.sort,
       filename: filename,
       all_themes: [tag_name]
     )

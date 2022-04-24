@@ -12,8 +12,10 @@ class Level < ApplicationRecord
     return { errors: "this user can't make a new level", status: 403 } if game_room.creator_id != params['guesser_id']
     return { errors: 'Game is not active, please make a new one', status: 403 } unless game_room.is_active
 
-    # TODO: fix the starting word
-    new_word = params[:word] || 'pokemon'
+    # TODO: increment this for difficulty
+    max_length = current_level.max_length
+
+    new_word = params[:word] || WordList.where(length: max_length).pluck(:word).sample
     game_room[:current_level] = game_room[:current_level] + 1
     new_level = Level.new(gameroom_id: game_room.id, level: game_room.current_level, starting_word: new_word,
                           is_active: true)
@@ -29,6 +31,13 @@ class Level < ApplicationRecord
 
   private
 
+  def find_words(starting_word)
+    word_array = starting_word.chars.sort
+    WordList.all.pluck(:word, :letters).each_with_object(Array.new []) do |word, arr|
+      arr.push(word[0]) if word[1] & word_array == word[1]
+    end
+  end
+
   def set_values
     self.max_length = starting_word.length
     self.valid_letters = starting_word.chars.sort
@@ -39,6 +48,7 @@ class Level < ApplicationRecord
     if fake_count.positive?
       self.fake_letters = Faker::Lorem.characters(number: fake_count, min_alpha: fake_count).chars.sort
     end
+    self.valid_words = find_words(starting_word)
     self.displayed_letters = (valid_letters + fake_letters - hidden_letters).shuffle
   end
 end
