@@ -3,7 +3,7 @@ interface WordBoardProps {
 }
 
 import WnosScrambled from 'components/WnosWord/WnosScrambled';
-import { lvl } from 'utils/MockData';
+import { MockLevel } from 'utils/MockData';
 
 function WnosBoard({ annoucement }: WordBoardProps) {
   return (
@@ -15,7 +15,7 @@ function WnosBoard({ annoucement }: WordBoardProps) {
         <span className="text-lg text-center text-background uppercase">
           unscramble me
         </span>
-        <WnosScrambled lvl={lvl}></WnosScrambled>
+        <WnosScrambled lvl={MockLevel}></WnosScrambled>
       </div>
     </div>
   );
