@@ -1,14 +1,13 @@
 import WnosBlock from 'components/WnosWord/WnosBlock';
 import { useEffect, useState } from 'react';
 import WnosWord from 'utils/WnosWord';
-
-interface WnosScrambledProps {
-  lvl: Level;
-}
+import { useGame } from 'context/GameProvider';
+import { observer } from 'mobx-react';
 
 // TODO: might be better to turn WnosWord into a ContextProvider
-function WnosScrambled({ lvl }: WnosScrambledProps) {
-  const wnosWord: WnosWord = new WnosWord(lvl);
+function WnosScrambled() {
+  const game = useGame();
+  const wnosWord: WnosWord = new WnosWord(game.currentLevel!);
   const [anagram, setAnagram] = useState<Letter[]>([...wnosWord.letters]);
 
   useEffect(() => {
@@ -46,4 +45,4 @@ function WnosScrambled({ lvl }: WnosScrambledProps) {
   );
 }
 
-export default WnosScrambled;
+export default observer(WnosScrambled);
