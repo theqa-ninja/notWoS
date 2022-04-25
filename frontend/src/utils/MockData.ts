@@ -1,3 +1,6 @@
+import { SocketResponse } from 'lib/MessageTypes';
+import LevelPayload from 'lib/payloads/LevelPayload';
+
 export const Usernames = [
   'kironto',
   'qa_ninja',
@@ -5,10 +8,15 @@ export const Usernames = [
   'hemidex',
   'lunar_marya',
   'staymad',
-  '7kats'
+  '7kats',
+  'morgan_victoria',
+  'jayshun',
+  'xephano',
+  'w0ngaccount',
+  'sunflawer'
 ];
 
-export const words = [
+export const MockDictionary = [
   'temperature',
   'putter',
   'premature',
@@ -41,7 +49,7 @@ export const MockLevel: Level = {
   game_room: '7323d638-dbff-4344-9855-e4f63d021c4e',
   starting_word: 'temperature',
   letters: 'temperature'.split(''),
-  valid_words: words,
+  valid_words: MockDictionary,
   fake_letters: ['b'],
   hidden_letters: ['p', 't'],
   min_length: 5,
@@ -58,4 +66,34 @@ export const MockGame: GameRoom = {
   level: 1,
   theme_id: null,
   owner: 'ac50715f-e790-43e2-8dbb-909310ee657a'
+};
+
+export const newLvl: SocketResponse<LevelPayload> = {
+  identifier: {
+    channel: 'GameroomChannel',
+    id: '338b0599-4ca8-485f-97cc-2e0c8f2e253c'
+  },
+  message: {
+    type: 'new_level',
+    success: true,
+    data: {
+      id: '78da3825-dadf-4a3b-96a8-818ce3623e1d',
+      gameroom_id: '338b0599-4ca8-485f-97cc-2e0c8f2e253c',
+      level: 10,
+      starting_word: 'pokemon',
+      valid_letters: ['e', 'k', 'm', 'n', 'o', 'o', 'p'],
+      valid_words: [],
+      fake_count: 0,
+      hidden_count: 0,
+      fake_letters: [],
+      hidden_letters: [],
+      displayed_letters: ['o', 'k', 'e', 'p', 'm', 'n', 'o'],
+      min_length: 4,
+      max_length: 7,
+      is_active: true,
+      tag_id: null,
+      created_at: '2022-04-12T22:04:23.809Z',
+      updated_at: '2022-04-12T22:04:23.809Z'
+    }
+  }
 };
