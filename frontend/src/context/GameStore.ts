@@ -6,7 +6,7 @@ import ScoreboardScreen from 'components/Game/ScoreboardScreen';
 import { FunctionComponent } from 'react';
 
 // TODO: remove this
-import { MockGame, MockLevel } from 'utils/MockData';
+import { MockGame, MockLevel, MockDictionary } from 'utils/MockData';
 
 export interface Game {
   room: GameRoom;
@@ -14,6 +14,7 @@ export interface Game {
   currentLevel: Level | null;
   screenState: ScreenState;
   isGameOver: boolean;
+  dictionary: Array<string>;
 }
 
 class GameStore implements Game {
@@ -30,6 +31,7 @@ class GameStore implements Game {
   public currentLevel: Level | null = null;
   public screenState: ScreenState = ScreenState.IDLE;
   public isGameOver = false;
+  public dictionary: Array<string> = [];
 
   constructor() {
     makeObservable(this, {
@@ -38,6 +40,7 @@ class GameStore implements Game {
       currentLevel: observable,
       screenState: observable,
       isGameOver: observable,
+      dictionary: observable,
       advanceScreen: action,
       nextLevel: action,
       reset: action,
@@ -143,6 +146,9 @@ class GameStore implements Game {
 
     // TODO: load lvl
     this.currentLevel = MockLevel;
+
+    // TODO: load dictionary
+    this.dictionary = this.currentLevel.valid_words;
   }
 
   public startGame() {

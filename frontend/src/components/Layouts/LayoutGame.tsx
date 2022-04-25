@@ -2,20 +2,19 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import WnosBoard from 'components/WnosBoard/WnosBoard';
 import WnosGuess from 'components/WnosGuess/WnosGuess';
 import LockoutBar from 'components/LockoutBar/LockoutBar';
-import { words } from 'utils/MockData';
 import { useGame } from 'context/GameProvider';
 import ScreenState from 'lib/ScreenState';
 import CountdownScreen from 'components/Game/CountdownScreen';
+import { observer } from 'mobx-react';
 
 const LayoutGame = () => {
-  let list = words.sort();
-  list = words.sort((a: string, b: string) => {
+  const { screenState, dictionary } = useGame();
+  let list = dictionary.sort();
+  list = dictionary.sort((a: string, b: string) => {
     if (a.length > b.length) return 1;
     if (a.length < b.length) return -1;
     return 0;
   });
-
-  const { screenState } = useGame();
 
   return (
     <>
@@ -47,4 +46,4 @@ const LayoutGame = () => {
   );
 };
 
-export default LayoutGame;
+export default observer(LayoutGame);
