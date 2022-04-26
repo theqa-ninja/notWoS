@@ -6,7 +6,7 @@ import ScoreboardScreen from 'components/Game/ScoreboardScreen';
 import { FunctionComponent } from 'react';
 
 // TODO: remove this
-import { MockGame, MockLevel, MockDictionary } from 'utils/MockData';
+import { MockGame, MockLevel } from 'utils/MockData';
 
 export interface Game {
   room: GameRoom;
