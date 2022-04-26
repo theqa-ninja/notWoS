@@ -1,25 +1,20 @@
 import WnosBlock from 'components/WnosWord/WnosBlock';
-import { useEffect, useState } from 'react';
-import WnosWord from 'utils/WnosWord';
+import { useState } from 'react';
+import WnosWord from 'context/WnosWord';
 import { useGame } from 'context/GameProvider';
 import { observer } from 'mobx-react';
 
 // TODO: might be better to turn WnosWord into a ContextProvider
 function WnosScrambled() {
   const game = useGame();
-  const wnosWord: WnosWord = new WnosWord(game.currentLevel!);
-  const [anagram, setAnagram] = useState<Letter[]>([...wnosWord.letters]);
-
-  useEffect(() => {
-    // TODO: only generate hiddens or fakes after a certain level
-    // obfuscateWord();
-  }, []);
+  const [wnosWord] = useState(() => new WnosWord(game.currentLevel!));
 
   const [showHiddens, setShowHiddens] = useState<boolean>(false);
   const [showFakes, setShowFakes] = useState<boolean>(false);
 
   function scramble() {
-    setAnagram([...wnosWord.scramble()]);
+    // setAnagram([...wnosWord.scramble()]);
+    wnosWord.scramble();
   }
 
   function unHideHiddens() {
@@ -33,7 +28,7 @@ function WnosScrambled() {
 
   return (
     <div className="wnos-word" onClick={scramble}>
-      {anagram.map((l: Letter, i: number) => (
+      {wnosWord.letters.map((l: Letter, i: number) => (
         <WnosBlock
           key={l.char + i}
           letter={l.char}

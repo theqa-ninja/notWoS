@@ -1,13 +1,13 @@
 # To do list
 
-- [ ] create mock data to test game
+- [x] create mock data to test game
 
 ## Libraries
 - [x] check out framer for cool animations
 - [ ] figure out the benefits of using MobX with Reactjs
 
 ## Homepage
-Should be simple and basic. Don't need a landing page. Just buttons to 
+Should be simple and basic. Don't need a landing page. Just buttons to
 join/create a room
 
 - [x] Create game room button
@@ -59,7 +59,7 @@ Should have something that dispatches the next screen state.
   - [ ] implement auto scramble after `x` amount of seconds
   - [ ] scrambling should increase (become faster) as the level timer goes down.
 
-#### End Level 
+#### End Level
 
 #### Game Over
 
