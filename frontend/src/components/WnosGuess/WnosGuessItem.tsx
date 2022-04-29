@@ -1,7 +1,10 @@
 import { LockClosedIcon } from '@heroicons/react/solid';
-import WnosGuessBlock from 'components/WnosGuess/WnosGuessBlock';
+import WnosGuessBlock from './WnosGuessBlock';
+import { useState } from 'react';
+import { observer } from 'mobx-react';
+import WnosGuess from 'context/WnosGuess';
 
-interface WnosGuessProps {
+interface WnosGuessItemProps {
   word: string;
   player: string;
   locked: boolean;
@@ -9,7 +12,8 @@ interface WnosGuessProps {
   length: number;
 }
 
-function WnosGuess({ word, player, locked, hidden, length }: WnosGuessProps) {
+function WnosGuessItem({ word, player, locked, hidden }: WnosGuessItemProps) {
+  const [guess] = useState(() => new WnosGuess(word, player, hidden, locked));
   return (
     <li className="wnos-guess">
       <div className="wnos-guess-player">
@@ -17,11 +21,11 @@ function WnosGuess({ word, player, locked, hidden, length }: WnosGuessProps) {
         <span className="text-white">{player}</span>
       </div>
       <ul className="wnos-guess-blocks">
-        {word.split('').map((w, i) => (
+        {guess.letters.map((w, i) => (
           <WnosGuessBlock
             key={w + i}
-            hidden={hidden}
-            length={length}
+            hidden={guess.hidden}
+            length={guess.length}
             letter={player ? w : ''}
           />
         ))}
@@ -30,4 +34,4 @@ function WnosGuess({ word, player, locked, hidden, length }: WnosGuessProps) {
   );
 }
 
-export default WnosGuess;
+export default observer(WnosGuessItem);

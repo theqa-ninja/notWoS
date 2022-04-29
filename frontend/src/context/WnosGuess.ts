@@ -21,7 +21,12 @@ export default class WnosGuess implements IWnosGuess {
   public letters: Array<string> = [];
   public player: string | null = null;
 
-  constructor(word: string, player: string | null = null, hidden = false) {
+  constructor(
+    word: string,
+    player: string | null = null,
+    hidden = false,
+    locked = false
+  ) {
     if (!word.length) {
       return;
     }
@@ -32,6 +37,7 @@ export default class WnosGuess implements IWnosGuess {
       this.guessed = true;
     }
     this.hidden = hidden;
+    this.locked = locked;
     this.updateLetters();
 
     makeObservable(this, {

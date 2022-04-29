@@ -1,6 +1,6 @@
 import Sidebar from 'components/Sidebar/Sidebar';
 import WnosBoard from 'components/WnosBoard/WnosBoard';
-import WnosGuess from 'components/WnosGuess/WnosGuess';
+import WnosGuessItem from 'components/WnosGuess/WnosGuessItem';
 import LockoutBar from 'components/LockoutBar/LockoutBar';
 import { useGame } from 'context/GameProvider';
 import ScreenState from 'lib/ScreenState';
@@ -27,7 +27,7 @@ const LayoutGame = () => {
 
           <ul className="wnos-guesses">
             {list.map((i: string) => (
-              <WnosGuess
+              <WnosGuessItem
                 key={i}
                 word={i}
                 player={
@@ -35,7 +35,6 @@ const LayoutGame = () => {
                 }
                 locked={Math.floor(Math.random() * 3) === 2}
                 hidden={Math.floor(Math.random() * 3) === 1}
-                length={i.length}
               />
             ))}
           </ul>

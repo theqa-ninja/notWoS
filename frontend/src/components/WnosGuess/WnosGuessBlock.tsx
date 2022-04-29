@@ -6,6 +6,7 @@ interface WnosGuessBlockProps {
 }
 
 function WnosGuessBlock({ length, hidden, letter }: WnosGuessBlockProps) {
+  // TODO: Should show the letters if the word is revealed, might not need the boolean states
   const classes = classnames('wnos-guess-block', {
     'wnos-guess-block--lavender': length === 4,
     'wnos-guess-block--teal': length === 5,
