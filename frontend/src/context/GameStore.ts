@@ -148,12 +148,27 @@ class GameStore implements Game {
     this.currentLevel = MockLevel;
 
     // TODO: load dictionary
-    this.dictionary = this.currentLevel.valid_words;
+    this.dictionary = this.sortByLengthAlphabetically(
+      this.currentLevel.valid_words
+    );
   }
 
   public startGame() {
-    console.log('start game');
+    if (import.meta.env.DEV) {
+      console.log('start game');
+    }
     this.screenState = ScreenState.ONGOING_GAME;
+  }
+
+  private sortByLengthAlphabetically(dictionary: Array<string>): Array<string> {
+    let list = dictionary.slice().sort();
+    list = list.sort((a: string, b: string) => {
+      if (a.length > b.length) return 1;
+      if (a.length < b.length) return -1;
+      return 0;
+    });
+
+    return list;
   }
 
   private log() {

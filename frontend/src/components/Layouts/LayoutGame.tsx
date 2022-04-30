@@ -9,12 +9,6 @@ import { observer } from 'mobx-react';
 
 const LayoutGame = () => {
   const { screenState, dictionary } = useGame();
-  let list = dictionary.slice().sort();
-  list = list.sort((a: string, b: string) => {
-    if (a.length > b.length) return 1;
-    if (a.length < b.length) return -1;
-    return 0;
-  });
 
   return (
     <>
@@ -26,7 +20,7 @@ const LayoutGame = () => {
           <LockoutBar />
 
           <ul className="wnos-guesses">
-            {list.map((i: string) => (
+            {dictionary.map((i: string) => (
               <WnosGuessItem
                 key={i}
                 word={i}
