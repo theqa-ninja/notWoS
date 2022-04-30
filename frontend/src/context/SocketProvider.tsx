@@ -1,6 +1,6 @@
 import ClientSocketController, {
   IClientSocketController
-} from '../utils/ClientSocketController';
+} from './ClientSocketController';
 import { createContext, useContext, ReactNode } from 'react';
 
 const SocketContext = createContext<IClientSocketController>({
