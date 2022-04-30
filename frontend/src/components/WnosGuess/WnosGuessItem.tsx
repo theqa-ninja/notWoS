@@ -9,7 +9,6 @@ interface WnosGuessItemProps {
   player: string;
   locked: boolean;
   hidden: boolean;
-  length: number;
 }
 
 function WnosGuessItem({ word, player, locked, hidden }: WnosGuessItemProps) {
