@@ -12,6 +12,13 @@ class GameroomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
+  def brand_new_game(data)
+    data['guesser_id'] = @guesser.id
+    new_game = Gameroom.new.brand_new_game(data)
+    GameroomChannel.broadcast_to(@game_room, new_game)
+    @game_room = new_game if new_game[:success]
+    stream_for @game_room
+
   def new_level(data)
     data['guesser_id'] = @guesser.id
     data['gameroom_id'] = @game_room.id
