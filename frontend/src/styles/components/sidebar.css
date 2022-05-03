@@ -1,44 +1,52 @@
 .sidebar {
-    @apply
-        bg-black-0
-        p-4
-        h-screen
-        border-l-4
-        border-solid
-        border-lavender
-        max-h-screen
-        flex
-        flex-col
-        space-y-4
-    ;
+  @apply absolute
+    lg:relative
+    h-fit
+  bg-black-0
+    bottom-0
+    p-4
+    lg:h-screen
+    lg:border-l-4
+    lg:border-t-0
+    border-t-4
+    border-solid
+    border-lavender
+    max-h-screen
+    flex
+    flex-col
+    space-y-4
+    w-full;
+}
+
+@media screen and (min-width: 1024px) {
+  .sidebar {
     width: min(350px, 30%);
+  }
 }
 
 .sidebar-header {
-    @apply
-      font-fredoka
-      border-4
-      border-solid
-      border-lavender
-      p-2
-      bg-background
-      text-center
-      rounded-xl
-      h-min
-      w-full;
+  @apply hidden
+    lg:block
+    font-fredoka
+    border-4
+    border-solid
+    border-lavender
+    p-2
+    bg-background
+    text-center
+    rounded-xl
+    h-min
+    w-full;
 }
 
 .sidebar-body {
-  @apply
-    overflow-y-auto
+  @apply overflow-y-auto
     overflow-x-hidden
-    h-full
-  ;
+    h-full;
 }
 
 .sidebar-footer {
-  @apply
-    flex
+  @apply flex
     flex-col
     space-y-2
     w-full

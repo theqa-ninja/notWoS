@@ -1,14 +1,12 @@
 .game {
-  @apply
-    w-screen
+  @apply w-screen
     h-screen
     flex
-  ;
+    relative;
 }
 
 .game-wnos {
-  @apply
-    p-10
+  @apply p-10
     w-full
     h-screen
     overflow-hidden
@@ -19,6 +17,5 @@
     flex-col
     items-center
     justify-center
-    gap-6
-  ;
+    gap-6;
 }
