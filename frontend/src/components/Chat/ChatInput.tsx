@@ -16,7 +16,12 @@ function ChatInput(props: {
       <footer className="sidebar-footer">
         <input type="text" value={props.value} onChange={props.onChange} />
         <section className="flex flex-row justify-between items-center space-x-2 w-full">
-          <Popover position="left">
+          <Popover
+            position="right"
+            btnContent={
+              <CogIcon className="w-6 h-6 hover:text-pink transition-all hover:scale-125 hover:rotate-45 hover:cursor-pointer" />
+            }
+          >
             <ul className="flex flex-wrap gap-2 w-[10rem] h-fit">
               {Object.values(Colors).map((c) => {
                 return (
