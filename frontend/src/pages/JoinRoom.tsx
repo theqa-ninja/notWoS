@@ -1,12 +1,14 @@
 import { FormEvent, ChangeEvent, useState } from 'react';
 import Button from 'components/Button/Button';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import UsernameDialog from 'components/UsernameDialog';
 import LayoutMain from 'components/Layouts/LayoutMain';
 import { AnimatePresence, motion } from 'framer-motion';
+import ArrowCircleLeftIcon from '@heroicons/react/solid/ArrowCircleLeftIcon';
 
 function JoinRoom() {
   const params = useParams();
+  const navigate = useNavigate();
   const [showUserDialog, setShowUserDialog] = useState<boolean>(false);
   const [roomCode, setRoomCode] = useState<string>(params.id ?? '');
   const [inputError, setInputError] = useState<string>('');
@@ -59,9 +61,23 @@ function JoinRoom() {
               />
               <span className="input-error">{inputError}</span>
 
-              <Button size="lg" popup color="green" className="mt-2">
-                join room
-              </Button>
+              <div className="flex gap-4 justify-center items-center mt-2 w-full">
+                <Button
+                  size="lg"
+                  popup
+                  color="rosewater"
+                  type="button"
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                >
+                  <ArrowCircleLeftIcon className="w-8 h-8" />
+                  Back
+                </Button>
+                <Button size="lg" popup color="green" type="submit">
+                  join room
+                </Button>
+              </div>
             </form>
           </motion.div>
         </AnimatePresence>
