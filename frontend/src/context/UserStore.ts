@@ -10,6 +10,7 @@ export interface User {
 interface IUserStore {
   user: User;
   color: Color;
+  prevGuess: string;
 }
 
 class UserStore implements IUserStore {
@@ -19,11 +20,13 @@ class UserStore implements IUserStore {
     id: null
   };
   public color = Color.lavender;
+  public prevGuess = '';
 
   constructor() {
     makeObservable(this, {
       user: observable,
       color: observable,
+      prevGuess: observable,
       setUsername: action
     });
 
