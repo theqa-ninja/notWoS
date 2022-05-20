@@ -6,6 +6,7 @@
 @import "components/sidebar.css";
 @import "components/chat.css";
 @import "components/game.css";
+@import "components/popover.css";
 @import "components/wnos-word.css";
 @import "components/wnos-board.css";
 @import "components/wnos-guess.css";
