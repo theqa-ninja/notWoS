@@ -18,6 +18,7 @@ class GameroomChannel < ApplicationCable::Channel
     GameroomChannel.broadcast_to(@game_room, new_game)
     @game_room = new_game if new_game[:success]
     stream_for @game_room
+  end
 
   def new_level(data)
     data['guesser_id'] = @guesser.id
@@ -48,5 +49,4 @@ class GameroomChannel < ApplicationCable::Channel
     # TODO: put better error logging message here
     print 'failed to find stuff'
   end
-end
 end
