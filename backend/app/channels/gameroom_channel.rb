@@ -49,3 +49,4 @@ class GameroomChannel < ApplicationCable::Channel
     print 'failed to find stuff'
   end
 end
+end
