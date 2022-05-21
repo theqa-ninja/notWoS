@@ -6,11 +6,18 @@ class Level < ApplicationRecord
   before_validation :set_values
   validates :starting_word, presence: true, length: { minimum: 5 }
 
+  def as_json(options = {})
+    options[:except] ||= %i[valid_letters hidden_letters fake_letters valid_words]
+    # TODO: figure out how to hide words before sending them
+    super(options)
+  end
+
   def next_level(params)
     game_room = Gameroom.find(params['gameroom_id'])
-    current_level = Level.find(params['level_id'])
     return { errors: "this user can't make a new level", status: 403 } if game_room.creator_id != params['guesser_id']
     return { errors: 'Game is not active, please make a new one', status: 403 } unless game_room.is_active
+
+    current_level = Level.where(is_active: true).where(gameroom_id: params['gameroom_id']).first
 
     # TODO: increment this for difficulty
     max_length = current_level.max_length
@@ -23,6 +30,7 @@ class Level < ApplicationRecord
     if new_level.save
       current_level.save!
       game_room.save!
+      # TODO: remove valid letters, valid words, fake letters, hidden letters, starting word from reply
       { type: 'new_level', success: true, data: new_level }
     else
       { type: 'new_level', success: false, errors: level.errors.full_messages, data: new_level }
@@ -33,7 +41,7 @@ class Level < ApplicationRecord
 
   def find_words(starting_word)
     word_array = starting_word.chars.sort
-    WordList.all.pluck(:word, :letters).each_with_object(Array.new []) do |word, arr|
+    WordList.all.pluck(:word, :letters).each_with_object(Array.new([])) do |word, arr|
       arr.push(word[0]) if word[1] & word_array == word[1]
     end
   end

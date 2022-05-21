@@ -27,7 +27,10 @@ class Gameroom < ApplicationRecord
 
   def new_game(params)
     current_game_room = Gameroom.find(params['gameroom_id'])
-    return { errors: "this user can't make a new level", status: 403 } if current_game_room.creator_id != params['guesser_id']
+    if current_game_room.creator_id != params['guesser_id']
+      return { errors: "this user can't make a new level",
+               status: 403 }
+    end
     return { errors: 'Game is not active, please make a new one', status: 403 } unless current_game_room.is_active
 
     current_game_room.is_active = false
