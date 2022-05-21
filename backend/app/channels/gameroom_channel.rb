@@ -3,23 +3,29 @@ class GameroomChannel < ApplicationCable::Channel
   def subscribed
     @game_room = Gameroom.where(is_active: true).find(params[:id])
     @level = Level.where(is_active: true).where(gameroom_id: @game_room.id).first
-    # TODO: change this later
+    # TODO: set user via login or assign a guest account
     @guesser = Guesser.all.sample
     stream_for @game_room
   end
+
+  # TODO: make event to reveal hidden / fake letters
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def brand_new_game(data)
-    data['guesser_id'] = @guesser.id
-    new_game = Gameroom.new.brand_new_game(data)
-    GameroomChannel.broadcast_to(@game_room, new_game)
-    @game_room = new_game if new_game[:success]
-    stream_for @game_room
+  # TODO: this only works during a connected subscription w/ an identifier???
+  # def brand_new_game(data)
+  #   print "brand_new_game: #{data}"
+  #   data['guesser_id'] = @guesser.id
+  #   new_game = Gameroom.new.brand_new_game(data)
+  #   GameroomChannel.broadcast_to(@game_room, new_game)
+  #   @game_room = new_game if new_game[:success]
+  #   stream_for @game_room
+  # end
 
   def new_level(data)
+    print "new_level: #{data}"
     data['guesser_id'] = @guesser.id
     data['gameroom_id'] = @game_room.id
     # TODO: remove this temp hack
@@ -30,6 +36,7 @@ class GameroomChannel < ApplicationCable::Channel
   end
 
   def new_game(data)
+    print "new_game: #{data}"
     data['guesser_id'] = @guesser.id
     data['gameroom_id'] = @game_room.id
     # TODO: remove this temp hack
@@ -41,6 +48,7 @@ class GameroomChannel < ApplicationCable::Channel
   end
 
   def new_guess(data)
+    print "new_guess: #{data}"
     data['guesser_id'] = @guesser.id
     data['gameroom_id'] = @game_room.id
     GameroomChannel.broadcast_to(@game_room, Guess.new.take_a_guess(data))
